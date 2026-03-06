@@ -186,65 +186,26 @@
         .mobile-nav a:last-child { border-bottom: none; }
         .mobile-nav a:hover { background: rgba(255,255,255,0.07); }
 
-        /* ===== HERO — image background ===== */
+        /* ===== HERO — full image, no overlay, no text ===== */
         .hero {
-            position: relative;
-            background-image: url('B7BDC04B-1F9D-4A2E-AD23-66CE4D2A2A13.png');
-            background-size: cover;
-            background-position: center top;
-            background-repeat: no-repeat;
-            color: var(--white);
-            padding: 100px 24px 110px;
-            text-align: center;
-            overflow: hidden;
+            display: block;
+            line-height: 0;
         }
 
-        /* dark overlay for text readability */
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.52);
+        .hero-img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: rgba(200,169,110,0.2);
-            border: 1px solid var(--tan);
-            color: var(--tan);
-            padding: 6px 18px;
-            border-radius: 20px;
-            font-size: 0.77rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 22px;
-        }
-
-        .hero h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: clamp(2rem, 5vw, 3.2rem);
-            font-weight: 800;
-            line-height: 1.15;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-        }
-
-        .hero h1 span { color: var(--tan); }
-
-        .hero p {
-            font-size: 1.05rem;
-            color: rgba(255,255,255,0.9);
-            max-width: 540px;
-            margin: 0 auto 36px;
-            text-shadow: 0 1px 4px rgba(0,0,0,0.35);
+        /* CTA strip directly below the image */
+        .hero-cta {
+            background: var(--gray-dark);
+            padding: 22px 24px;
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .hero-buttons {
@@ -1029,7 +990,6 @@
             .qb-form-row { grid-template-columns: 1fr; }
             .qb-actions { grid-template-columns: 1fr; }
             section { padding: 52px 20px; }
-            .hero { padding: 80px 20px 90px; }
             .trust-bar { gap: 18px; }
             .showroom-body { padding: 12px 56px; }
         }
@@ -1091,18 +1051,16 @@
     <a href="#contact" onclick="closeMobileNav()" style="color: #c8a96e; font-weight: 700;">Get a Free Quote &rarr;</a>
 </div>
 
-<!-- HERO -->
-<section class="hero">
-    <div class="hero-content">
-        <div class="hero-badge">Portland, TN &middot; Serving TN &middot; KY &middot; AL &middot; Fully Insured</div>
-        <h1>Your Yard Deserves<br><span>Professional Care</span></h1>
-        <p>Hunter's Lawn &amp; Landscape handles everything from weekly mowing to full hardscape installations &mdash; done right, every time.</p>
-        <div class="hero-buttons">
-            <a href="#contact" class="btn-primary">Get a Free Quote</a>
-            <a href="tel:6157726134" class="btn-secondary">Call 615-772-6134</a>
-        </div>
-    </div>
-</section>
+<!-- HERO — full image, no text on top -->
+<div class="hero">
+    <img class="hero-img" src="B7BDC04B-1F9D-4A2E-AD23-66CE4D2A2A13.png" alt="Hunter's Lawn &amp; Landscape — Serving Tennessee, Kentucky &amp; Alabama">
+</div>
+
+<!-- CTA STRIP below image -->
+<div class="hero-cta">
+    <a href="#contact" class="btn-primary">Get a Free Quote</a>
+    <a href="tel:6157726134" class="btn-secondary">Call 615-772-6134</a>
+</div>
 
 <!-- TRUST BAR -->
 <div class="trust-bar">
@@ -1231,7 +1189,7 @@
         <div class="showroom-title">
             <span>Hunter's Lawn &amp; Landscape</span> &mdash; Recently Completed Projects
         </div>
-        <div class="showroom-counter" id="showroomCounter">1 / 6</div>
+        <div class="showroom-counter" id="showroomCounter">1 / 23</div>
         <button class="showroom-close" onclick="closeShowroom()" aria-label="Close gallery">&times;</button>
     </div>
     <div class="showroom-body">
@@ -1526,12 +1484,29 @@
 
     // ===== SHOWROOM GALLERY =====
     const slides = [
-        { src: 'images/project-1.jpg', caption: 'Rip Rap Driveway Installation', location: '📍 Portland, TN' },
-        { src: 'images/project-2.jpg', caption: 'Rock Channel Drainage System',  location: '📍 Hendersonville, TN' },
-        { src: 'images/project-3.jpg', caption: 'Large Outdoor Renovation',       location: '📍 Goodlettsville, TN' },
-        { src: 'images/project-4.jpg', caption: 'Commercial Snow Plowing',        location: '📍 Portland, TN' },
-        { src: 'images/project-5.jpg', caption: 'Block Retaining Wall Steps',     location: '📍 Lafayette, TN' },
-        { src: 'images/project-6.jpg', caption: 'Spring Cleanup & Bed Refresh',   location: '📍 Nashville, TN' },
+        { src: 'images/IMG_1040.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'images/IMG_1041.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'images/IMG_1042.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'images/IMG_1043.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'images/IMG_1044.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'images/IMG_1045.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'images/IMG_1046.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'images/IMG_1047.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'images/IMG_1048.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'images/IMG_1049.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'images/IMG_1050.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'images/IMG_1051.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'images/IMG_1052.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'images/IMG_1053.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'images/IMG_1054.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'images/IMG_1055.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'images/IMG_1056.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'images/IMG_1057.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'images/IMG_1058.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'images/IMG_1059.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'images/IMG_1060.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'images/IMG_1065.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'images/IMG_1066.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
     ];
 
     let currentSlide = 0;
