@@ -10,24 +10,17 @@
     <style>
         /* ===== CSS CUSTOM PROPERTIES ===== */
         :root {
-            --stone-dark: #2e2b27;
-            --stone-mid: #4a4540;
-            --stone-accent: #7a7260;
-            --stone-light: #f0ece4;
-            --tan: #c8a96e;
-            --cream: #f7f3ec;
-            --white: #ffffff;
-            --text-dark: #1a1a1a;
-            --text-gray: #5a5550;
-            --shadow: 0 4px 20px rgba(0,0,0,0.14);
-            --radius: 8px;
-        }
-
-        /* Stone texture mixin applied via class */
-        .stone-texture {
-            background-image:
-                repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(255,255,255,0.012) 3px, rgba(255,255,255,0.012) 6px),
-                repeating-linear-gradient(-45deg, transparent, transparent 3px, rgba(0,0,0,0.025) 3px, rgba(0,0,0,0.025) 6px);
+            --gray-dark:   #4a4a4a;
+            --gray-mid:    #6b6b6b;
+            --gray-accent: #888888;
+            --gray-light:  #f4f4f4;
+            --cream:       #f9f9f9;
+            --tan:         #c8a96e;
+            --white:       #ffffff;
+            --text-dark:   #1a1a1a;
+            --text-gray:   #5f5f5f;
+            --shadow:      0 4px 20px rgba(0,0,0,0.12);
+            --radius:      8px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -43,65 +36,53 @@
         nav {
             position: sticky;
             top: 0;
-            background: var(--stone-dark);
-            background-image:
-                repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(255,255,255,0.012) 3px, rgba(255,255,255,0.012) 6px),
-                repeating-linear-gradient(-45deg, transparent, transparent 3px, rgba(0,0,0,0.025) 3px, rgba(0,0,0,0.025) 6px);
+            background: var(--gray-dark);
             z-index: 1000;
-            padding: 0 20px;
+            padding: 0 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 68px;
-            box-shadow: 0 2px 14px rgba(0,0,0,0.35);
+            height: 64px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.25);
         }
 
-        /* ===== NAV LOGO WITH LANDSCAPE BACKGROUND ===== */
-        .nav-logo-wrap {
-            position: relative;
+        /* ===== NAV LOGO — clean typographic wordmark ===== */
+        .nav-logo {
             display: flex;
             align-items: center;
             gap: 10px;
             text-decoration: none;
-            background: linear-gradient(160deg, #1a3320 0%, #2a4a2a 55%, #3d6b3d 100%);
-            border-radius: 8px;
-            padding: 6px 14px 6px 12px;
-            overflow: hidden;
-            min-width: 148px;
-            height: 52px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3), inset 0 0 0 1px rgba(255,255,255,0.08);
+            border-left: 3px solid var(--tan);
+            padding-left: 12px;
         }
 
-        /* Tree silhouette landscape at bottom of logo */
-        .nav-logo-wrap::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 22px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 148 22' preserveAspectRatio='none'%3E%3Cpath d='M0,22 L0,14 L6,14 L6,8 L10,8 L10,4 L14,4 L14,8 L18,8 L18,14 L22,14 L22,10 L25,10 L25,6 L28,6 L28,10 L31,10 L31,14 L38,14 L38,9 L42,9 L42,5 L46,5 L46,9 L50,9 L50,14 L55,14 L55,11 L58,11 L58,7 L62,7 L62,11 L65,11 L65,14 L72,14 L72,10 L76,10 L76,6 L80,6 L80,10 L84,10 L84,14 L90,14 L90,8 L94,8 L94,3 L98,3 L98,8 L102,8 L102,14 L108,14 L108,10 L112,10 L112,6 L116,6 L116,10 L120,10 L120,14 L126,14 L126,11 L130,11 L130,7 L134,7 L134,11 L138,11 L138,14 L148,14 L148,22 Z' fill='rgba(0,0,0,0.35)'/%3E%3Cpath d='M0,22 L0,16 L4,16 L4,13 L7,13 L7,16 L12,16 L12,13 L15,13 L15,11 L18,11 L18,13 L23,13 L23,16 L28,16 L28,12 L32,12 L32,9 L36,9 L36,12 L40,12 L40,16 L46,16 L46,13 L50,13 L50,10 L54,10 L54,13 L58,13 L58,16 L64,16 L64,13 L68,13 L68,10 L72,10 L72,13 L76,13 L76,16 L82,16 L82,12 L86,12 L86,9 L90,9 L90,12 L94,12 L94,16 L100,16 L100,13 L104,13 L104,10 L108,10 L108,13 L112,13 L112,16 L118,16 L118,13 L122,13 L122,10 L126,10 L126,13 L130,13 L130,16 L136,16 L136,13 L140,13 L140,11 L144,11 L144,13 L148,13 L148,22 Z' fill='rgba(0,80,0,0.25)'/%3E%3C/svg%3E") no-repeat bottom center / 100% 100%;
+        .nav-logo-icon {
+            font-size: 1.3rem;
+            line-height: 1;
         }
 
         .nav-logo-text {
-            position: relative;
-            z-index: 1;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            font-size: 0.95rem;
-            color: var(--white);
-            line-height: 1.2;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
         }
 
-        .nav-logo-text span { color: var(--tan); }
-
-        .nav-logo-icon {
-            position: relative;
-            z-index: 1;
-            font-size: 1.4rem;
+        .nav-logo-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.05rem;
+            color: var(--white);
+            letter-spacing: 1.5px;
             line-height: 1;
-            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.4));
+        }
+
+        .nav-logo-sub {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.68rem;
+            color: var(--tan);
+            letter-spacing: 0.6px;
+            line-height: 1;
         }
 
         .nav-links {
@@ -112,11 +93,11 @@
         }
 
         .nav-links a {
-            color: rgba(255,255,255,0.85);
+            color: rgba(255,255,255,0.82);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.84rem;
             font-weight: 600;
-            letter-spacing: 0.4px;
+            letter-spacing: 0.3px;
             transition: color 0.2s;
         }
 
@@ -124,11 +105,10 @@
 
         .nav-cta {
             background: var(--tan);
-            color: var(--stone-dark) !important;
+            color: var(--gray-dark) !important;
             padding: 7px 15px;
             border-radius: 4px;
             font-weight: 700 !important;
-            font-size: 0.82rem !important;
         }
 
         .nav-right {
@@ -147,11 +127,12 @@
             background: #1877F2;
             transition: transform 0.2s, box-shadow 0.2s;
             flex-shrink: 0;
+            text-decoration: none;
         }
 
         .nav-fb:hover {
             transform: scale(1.1);
-            box-shadow: 0 4px 12px rgba(24,119,242,0.5);
+            box-shadow: 0 4px 12px rgba(24,119,242,0.45);
         }
 
         .nav-fb svg { display: block; }
@@ -177,14 +158,14 @@
         .mobile-nav {
             display: none;
             position: fixed;
-            top: 68px;
+            top: 64px;
             left: 0;
             right: 0;
-            background: var(--stone-dark);
+            background: var(--gray-dark);
             z-index: 999;
             flex-direction: column;
-            padding: 16px 0;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            padding: 12px 0;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
         }
 
         .mobile-nav.open { display: flex; }
@@ -205,41 +186,46 @@
         .mobile-nav a:last-child { border-bottom: none; }
         .mobile-nav a:hover { background: rgba(255,255,255,0.07); }
 
-        /* ===== HERO ===== */
+        /* ===== HERO — image background ===== */
         .hero {
-            background: linear-gradient(135deg, var(--stone-dark) 0%, var(--stone-mid) 60%, #5c5650 100%);
-            background-image:
-                repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(255,255,255,0.008) 3px, rgba(255,255,255,0.008) 6px),
-                repeating-linear-gradient(-45deg, transparent, transparent 3px, rgba(0,0,0,0.02) 3px, rgba(0,0,0,0.02) 6px),
-                linear-gradient(135deg, var(--stone-dark) 0%, var(--stone-mid) 60%, #5c5650 100%);
-            color: var(--white);
-            padding: 80px 24px 100px;
-            text-align: center;
             position: relative;
+            background-image: url('B7BDC04B-1F9D-4A2E-AD23-66CE4D2A2A13.png');
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            color: var(--white);
+            padding: 100px 24px 110px;
+            text-align: center;
             overflow: hidden;
         }
 
+        /* dark overlay for text readability */
         .hero::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background: rgba(0, 0, 0, 0.52);
         }
 
-        .hero-content { position: relative; max-width: 720px; margin: 0 auto; }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
 
         .hero-badge {
             display: inline-block;
-            background: rgba(200,169,110,0.18);
+            background: rgba(200,169,110,0.2);
             border: 1px solid var(--tan);
             color: var(--tan);
-            padding: 6px 16px;
+            padding: 6px 18px;
             border-radius: 20px;
-            font-size: 0.78rem;
+            font-size: 0.77rem;
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         .hero h1 {
@@ -248,15 +234,17 @@
             font-weight: 800;
             line-height: 1.15;
             margin-bottom: 20px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
         }
 
         .hero h1 span { color: var(--tan); }
 
         .hero p {
             font-size: 1.05rem;
-            color: rgba(255,255,255,0.85);
-            max-width: 560px;
-            margin: 0 auto 32px;
+            color: rgba(255,255,255,0.9);
+            max-width: 540px;
+            margin: 0 auto 36px;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.35);
         }
 
         .hero-buttons {
@@ -264,16 +252,15 @@
             gap: 12px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 48px;
         }
 
         .btn-primary {
             background: var(--tan);
-            color: var(--stone-dark);
-            padding: 12px 24px;
+            color: var(--gray-dark);
+            padding: 13px 26px;
             border-radius: var(--radius);
             font-weight: 700;
-            font-size: 0.92rem;
+            font-size: 0.94rem;
             text-decoration: none;
             transition: transform 0.2s, box-shadow 0.2s;
             display: inline-block;
@@ -287,111 +274,38 @@
         .btn-secondary {
             background: transparent;
             color: var(--white);
-            padding: 12px 24px;
+            padding: 13px 26px;
             border-radius: var(--radius);
             font-weight: 700;
-            font-size: 0.92rem;
+            font-size: 0.94rem;
             text-decoration: none;
-            border: 2px solid rgba(255,255,255,0.4);
+            border: 2px solid rgba(255,255,255,0.5);
             transition: border-color 0.2s, background 0.2s;
             display: inline-block;
         }
 
         .btn-secondary:hover {
             border-color: var(--white);
-            background: rgba(255,255,255,0.1);
-        }
-
-        /* ===== STATE MAP ===== */
-        .state-map-wrap {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .state-map-svg {
-            width: 100%;
-            max-width: 340px;
-            height: auto;
-            filter: drop-shadow(0 4px 16px rgba(0,0,0,0.4));
-        }
-
-        .state-map-label {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.82rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--tan);
-        }
-
-        /* State fill and stroke */
-        .state-shape {
-            fill: rgba(200,169,110,0.1);
-            stroke: rgba(255,255,255,0.7);
-            stroke-width: 2;
-            stroke-linejoin: round;
-            transition: fill 0.2s;
-        }
-
-        .state-shape:hover { fill: rgba(200,169,110,0.22); }
-
-        .state-label-text {
-            fill: rgba(255,255,255,0.6);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 13px;
-            font-weight: 700;
-            text-anchor: middle;
-            letter-spacing: 1px;
-        }
-
-        .pin-dot {
-            fill: var(--tan);
-            stroke: var(--white);
-            stroke-width: 1.5;
-        }
-
-        .pin-pulse {
-            fill: none;
-            stroke: var(--tan);
-            stroke-width: 1.5;
-            opacity: 0.6;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { r: 8; opacity: 0.6; }
-            50% { r: 13; opacity: 0; }
-        }
-
-        .pin-label {
-            fill: var(--white);
-            font-size: 9px;
-            font-family: 'Open Sans', sans-serif;
-            font-weight: 600;
-            text-anchor: middle;
+            background: rgba(255,255,255,0.12);
         }
 
         /* ===== TRUST BAR ===== */
         .trust-bar {
-            background: var(--stone-mid);
-            background-image:
-                repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(255,255,255,0.01) 3px, rgba(255,255,255,0.01) 6px);
-            padding: 16px 24px;
+            background: var(--gray-mid);
+            padding: 14px 24px;
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 36px;
             flex-wrap: wrap;
         }
 
         .trust-item {
-            color: rgba(255,255,255,0.9);
-            font-size: 0.85rem;
+            color: rgba(255,255,255,0.92);
+            font-size: 0.83rem;
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 7px;
         }
 
         .trust-item::before {
@@ -404,8 +318,8 @@
         section { padding: 72px 24px; }
 
         .section-label {
-            color: var(--stone-accent);
-            font-size: 0.75rem;
+            color: var(--gray-accent);
+            font-size: 0.73rem;
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -416,7 +330,7 @@
             font-family: 'Montserrat', sans-serif;
             font-size: clamp(1.7rem, 3.5vw, 2.4rem);
             font-weight: 800;
-            color: var(--stone-dark);
+            color: var(--gray-dark);
             margin-bottom: 16px;
             line-height: 1.2;
         }
@@ -432,7 +346,7 @@
         .container { max-width: 1100px; margin: 0 auto; }
 
         /* ===== SERVICES ===== */
-        #services { background: var(--cream); }
+        #services { background: var(--gray-light); }
 
         .services-grid {
             display: grid;
@@ -452,7 +366,7 @@
 
         .service-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 36px rgba(0,0,0,0.13);
+            box-shadow: 0 12px 36px rgba(0,0,0,0.11);
         }
 
         .service-icon {
@@ -465,7 +379,7 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 0.95rem;
             font-weight: 700;
-            color: var(--stone-dark);
+            color: var(--gray-dark);
             margin-bottom: 8px;
         }
 
@@ -475,7 +389,7 @@
             line-height: 1.6;
         }
 
-        /* ===== PORTFOLIO ===== */
+        /* ===== PORTFOLIO TEXT CARDS ===== */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -484,11 +398,9 @@
         }
 
         .portfolio-card {
-            background: var(--stone-dark);
-            background-image:
-                repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(255,255,255,0.01) 3px, rgba(255,255,255,0.01) 6px);
+            background: var(--gray-dark);
             border-radius: 12px;
-            padding: 32px 24px;
+            padding: 28px 22px;
             color: var(--white);
             position: relative;
             overflow: hidden;
@@ -501,34 +413,33 @@
             content: '';
             position: absolute;
             top: 0; right: 0;
-            width: 100px; height: 100px;
-            background: rgba(200,169,110,0.1);
+            width: 90px; height: 90px;
+            background: rgba(200,169,110,0.12);
             border-radius: 50%;
-            transform: translate(30px, -30px);
+            transform: translate(25px, -25px);
         }
 
         .portfolio-tag {
             background: var(--tan);
-            color: var(--stone-dark);
+            color: var(--gray-dark);
             font-size: 0.7rem;
             font-weight: 700;
             padding: 4px 12px;
             border-radius: 20px;
             display: inline-block;
             margin-bottom: 12px;
-            letter-spacing: 0.5px;
         }
 
         .portfolio-card h3 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.05rem;
+            font-size: 1.02rem;
             font-weight: 700;
             margin-bottom: 8px;
         }
 
         .portfolio-card p {
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.75);
+            font-size: 0.84rem;
+            color: rgba(255,255,255,0.72);
             line-height: 1.6;
         }
 
@@ -539,142 +450,209 @@
             font-weight: 600;
         }
 
-        /* ===== PHOTO GALLERY ===== */
-        .gallery-heading {
+        /* ===== SHOWROOM GALLERY ENTRY ===== */
+        .gallery-entry {
+            margin-top: 52px;
+            text-align: center;
+        }
+
+        .gallery-entry-label {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.1rem;
+            font-size: 0.78rem;
             font-weight: 700;
-            color: var(--stone-dark);
-            margin: 52px 0 20px;
-            display: flex;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gray-accent);
+            margin-bottom: 14px;
+        }
+
+        .gallery-entry-btn {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
             gap: 10px;
-        }
-
-        .gallery-heading::before,
-        .gallery-heading::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: rgba(0,0,0,0.12);
-            max-width: 200px;
-        }
-
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 16px;
-            margin-top: 4px;
-        }
-
-        .photo-item {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            height: 220px;
+            background: var(--tan);
+            color: var(--gray-dark);
+            padding: 16px 36px;
+            border-radius: var(--radius);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
             cursor: pointer;
-            background: var(--stone-mid);
-            box-shadow: 0 3px 14px rgba(0,0,0,0.14);
+            border: none;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .photo-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.35s ease;
+        .gallery-entry-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(200,169,110,0.4);
         }
 
-        .photo-item:hover img { transform: scale(1.06); }
-
-        .photo-item-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            color: rgba(255,255,255,0.4);
-            font-size: 0.82rem;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
+        .gallery-entry-note {
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: var(--gray-accent);
         }
 
-        .photo-item-placeholder svg { opacity: 0.35; }
-
-        .photo-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%);
-            opacity: 0;
-            transition: opacity 0.25s;
-            display: flex;
-            align-items: flex-end;
-            padding: 16px;
-        }
-
-        .photo-item:hover .photo-overlay { opacity: 1; }
-
-        .photo-overlay span {
-            color: var(--white);
-            font-size: 0.82rem;
-            font-weight: 600;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        /* ===== LIGHTBOX ===== */
-        .lightbox {
+        /* ===== SHOWROOM OVERLAY ===== */
+        .showroom {
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.92);
-            z-index: 9999;
+            background: rgba(10,10,10,0.97);
+            z-index: 10000;
+            flex-direction: column;
+        }
+
+        .showroom.active { display: flex; }
+
+        .showroom-top {
+            display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 20px;
+            justify-content: space-between;
+            padding: 16px 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            flex-shrink: 0;
         }
 
-        .lightbox.active { display: flex; }
-
-        .lightbox img {
-            max-width: 100%;
-            max-height: 90vh;
-            object-fit: contain;
-            border-radius: 8px;
-            box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+        .showroom-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.7);
+            letter-spacing: 0.5px;
         }
 
-        .lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 24px;
-            background: none;
-            border: none;
-            color: var(--white);
-            font-size: 2.2rem;
-            cursor: pointer;
-            line-height: 1;
-            opacity: 0.8;
-            transition: opacity 0.2s;
-        }
+        .showroom-title span { color: var(--tan); }
 
-        .lightbox-close:hover { opacity: 1; }
-
-        .lightbox-caption {
-            position: absolute;
-            bottom: 24px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: rgba(255,255,255,0.75);
-            font-size: 0.88rem;
-            text-align: center;
+        .showroom-counter {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.45);
             font-family: 'Montserrat', sans-serif;
         }
 
+        .showroom-close {
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.7);
+            font-size: 1.8rem;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.2s;
+            padding: 4px 8px;
+        }
+
+        .showroom-close:hover { color: var(--white); }
+
+        .showroom-body {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 16px 72px;
+        }
+
+        .showroom-img-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .showroom-img-wrap img {
+            max-width: 100%;
+            max-height: 68vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 8px 48px rgba(0,0,0,0.6);
+            display: block;
+        }
+
+        .showroom-placeholder-slide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            color: rgba(255,255,255,0.35);
+        }
+
+        .showroom-placeholder-slide svg { opacity: 0.3; }
+
+        .showroom-placeholder-slide p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .showroom-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: var(--white);
+            font-size: 1.8rem;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+            line-height: 1;
+        }
+
+        .showroom-nav-btn:hover { background: rgba(255,255,255,0.2); }
+        .showroom-nav-btn.prev { left: 12px; }
+        .showroom-nav-btn.next { right: 12px; }
+
+        .showroom-footer {
+            flex-shrink: 0;
+            padding: 14px 24px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .showroom-caption {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .showroom-location {
+            font-size: 0.78rem;
+            color: var(--tan);
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        .showroom-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .showroom-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.25);
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            border: none;
+        }
+
+        .showroom-dot.active {
+            background: var(--tan);
+            transform: scale(1.25);
+        }
+
         /* ===== WHY US ===== */
-        #why-us { background: var(--stone-light); }
+        #why-us { background: var(--gray-light); }
 
         .stats-grid {
             display: grid;
@@ -695,7 +673,7 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 2.4rem;
             font-weight: 800;
-            color: var(--stone-dark);
+            color: var(--gray-dark);
             line-height: 1;
         }
 
@@ -723,7 +701,7 @@
         }
 
         .why-point-icon {
-            background: var(--stone-light);
+            background: var(--gray-light);
             border-radius: 8px;
             width: 36px;
             height: 36px;
@@ -738,7 +716,7 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 0.88rem;
             font-weight: 700;
-            color: var(--stone-dark);
+            color: var(--gray-dark);
             margin-bottom: 4px;
         }
 
@@ -750,40 +728,48 @@
         /* ===== SERVICE AREA ===== */
         #service-area { background: var(--cream); }
 
-        .service-area-map {
+        .service-area-states {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
-            margin-top: 32px;
+            justify-content: center;
+            gap: 32px;
+            margin: 36px 0 28px;
+            flex-wrap: wrap;
         }
 
-        .service-area-map .state-map-svg {
-            max-width: 440px;
+        .service-state-badge {
+            background: var(--white);
+            border: 2px solid var(--tan);
+            border-radius: 12px;
+            padding: 18px 28px;
+            text-align: center;
+            min-width: 140px;
+            box-shadow: var(--shadow);
         }
 
-        /* State shapes in service area: use stone-dark background */
-        #service-area .state-shape {
-            fill: rgba(46,43,39,0.08);
-            stroke: var(--stone-accent);
+        .service-state-badge .state-flag { font-size: 2rem; margin-bottom: 8px; }
+
+        .service-state-badge h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--gray-dark);
+            margin-bottom: 4px;
         }
 
-        #service-area .state-label-text { fill: var(--stone-dark); opacity: 0.7; }
-        #service-area .pin-dot { fill: var(--tan); stroke: var(--stone-dark); }
-        #service-area .pin-pulse { stroke: var(--tan); }
-        #service-area .pin-label { fill: var(--stone-dark); }
-        #service-area .state-map-label { color: var(--stone-dark); }
+        .service-state-badge p {
+            font-size: 0.78rem;
+            color: var(--text-gray);
+        }
 
-        /* ===== CONTACT ===== */
+        /* ===== CONTACT / QUOTE BUILDER ===== */
         #contact {
-            background: var(--stone-dark);
-            background-image:
-                repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(255,255,255,0.012) 3px, rgba(255,255,255,0.012) 6px),
-                repeating-linear-gradient(-45deg, transparent, transparent 3px, rgba(0,0,0,0.025) 3px, rgba(0,0,0,0.025) 6px);
+            background: var(--gray-dark);
             color: var(--white);
         }
+
         #contact h2 { color: var(--white); }
-        #contact .section-sub { color: rgba(255,255,255,0.75); }
+        #contact .section-sub { color: rgba(255,255,255,0.72); }
+        #contact .section-label { color: var(--tan); }
 
         .contact-wrapper {
             display: grid;
@@ -795,7 +781,7 @@
 
         .contact-info h3 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: 700;
             margin-bottom: 24px;
             color: var(--tan);
@@ -821,8 +807,8 @@
         }
 
         .contact-detail-text p {
-            color: rgba(255,255,255,0.65);
-            font-size: 0.82rem;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.8rem;
             margin-bottom: 2px;
         }
 
@@ -830,7 +816,7 @@
         .contact-detail-text strong {
             color: var(--white);
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.98rem;
             text-decoration: none;
         }
 
@@ -841,11 +827,11 @@
             align-items: center;
             gap: 10px;
             background: var(--tan);
-            color: var(--stone-dark);
-            padding: 14px 24px;
+            color: var(--gray-dark);
+            padding: 13px 22px;
             border-radius: var(--radius);
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.95rem;
             text-decoration: none;
             margin-top: 20px;
             transition: transform 0.2s, box-shadow 0.2s;
@@ -856,100 +842,162 @@
             box-shadow: 0 8px 24px rgba(200,169,110,0.3);
         }
 
-        /* ===== CONTACT FORM ===== */
-        .contact-form {
+        /* ===== QUOTE BUILDER ===== */
+        .quote-builder {
             background: rgba(255,255,255,0.07);
             border: 1px solid rgba(255,255,255,0.12);
             border-radius: 12px;
-            padding: 36px;
+            padding: 32px;
         }
 
-        .contact-form h3 {
+        .quote-builder h3 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 24px;
+            margin-bottom: 22px;
             color: var(--tan);
         }
 
-        .form-row {
+        .qb-form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 14px;
         }
 
-        .form-group { margin-bottom: 16px; }
+        .qb-group { margin-bottom: 15px; }
 
-        .form-group label {
+        .qb-group label {
             display: block;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 6px;
-            letter-spacing: 0.3px;
+            color: rgba(255,255,255,0.65);
+            margin-bottom: 5px;
         }
 
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
+        .qb-group input,
+        .qb-group select,
+        .qb-group textarea {
             width: 100%;
             background: rgba(255,255,255,0.09);
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.18);
             border-radius: 6px;
-            padding: 11px 14px;
+            padding: 10px 13px;
             color: var(--white);
-            font-size: 0.95rem;
+            font-size: 0.93rem;
             font-family: 'Open Sans', sans-serif;
             outline: none;
-            transition: border-color 0.2s, background 0.2s;
+            transition: border-color 0.2s;
         }
 
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255,255,255,0.35);
+        .qb-group input::placeholder,
+        .qb-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+
+        .qb-group select option { background: #4a4a4a; }
+
+        .qb-group input:focus,
+        .qb-group select:focus,
+        .qb-group textarea:focus { border-color: var(--tan); }
+
+        .qb-group textarea { resize: vertical; min-height: 90px; }
+
+        /* Message preview */
+        .qb-preview-wrap {
+            margin: 16px 0;
         }
 
-        .form-group select option { background: var(--stone-dark); color: var(--white); }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: var(--tan);
-            background: rgba(255,255,255,0.12);
+        .qb-preview-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.45);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
         }
 
-        .form-group textarea { resize: vertical; min-height: 110px; }
+        .qb-preview {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 14px 16px;
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.65);
+            white-space: pre-wrap;
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.7;
+            min-height: 120px;
+            border-left: 3px solid var(--tan);
+        }
 
-        .form-submit {
-            width: 100%;
-            background: var(--tan);
-            color: var(--stone-dark);
-            border: none;
-            padding: 14px 24px;
+        /* Send buttons */
+        .qb-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 14px;
+        }
+
+        .qb-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 13px 16px;
             border-radius: var(--radius);
             font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
+            font-size: 0.9rem;
             font-family: 'Montserrat', sans-serif;
-            transition: transform 0.2s, box-shadow 0.2s;
-            margin-top: 4px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+            cursor: pointer;
+            border: none;
+            text-align: center;
         }
 
-        .form-submit:hover {
+        .qb-btn:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(200,169,110,0.35);
+        }
+
+        .qb-btn-text {
+            background: var(--tan);
+            color: var(--gray-dark);
+        }
+
+        .qb-btn-text:hover:not(:disabled) {
+            box-shadow: 0 6px 20px rgba(200,169,110,0.4);
+        }
+
+        .qb-btn-email {
+            background: rgba(255,255,255,0.12);
+            color: var(--white);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .qb-btn-email:hover:not(:disabled) {
+            background: rgba(255,255,255,0.18);
+        }
+
+        .qb-btn:disabled,
+        .qb-btn.disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .qb-hint {
+            margin-top: 10px;
+            font-size: 0.74rem;
+            color: rgba(255,255,255,0.35);
+            text-align: center;
         }
 
         /* ===== FOOTER ===== */
         footer {
-            background: #1a1714;
-            background-image:
-                repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(255,255,255,0.008) 3px, rgba(255,255,255,0.008) 6px);
-            color: rgba(255,255,255,0.55);
+            background: #3a3a3a;
+            color: rgba(255,255,255,0.52);
             text-align: center;
-            padding: 32px 24px;
+            padding: 30px 24px;
             font-size: 0.85rem;
-            line-height: 1.8;
+            line-height: 1.9;
         }
 
         footer .footer-name {
@@ -960,22 +1008,13 @@
             letter-spacing: 0.5px;
         }
 
-        footer .footer-location {
-            color: rgba(255,255,255,0.6);
-            font-size: 0.85rem;
-        }
-
-        footer .footer-contact {
-            margin-top: 4px;
-        }
-
         footer a { color: var(--tan); text-decoration: none; }
         footer a:hover { color: rgba(200,169,110,0.8); }
 
         footer .footer-serving {
-            margin-top: 6px;
-            font-size: 0.78rem;
-            color: rgba(255,255,255,0.4);
+            margin-top: 4px;
+            font-size: 0.77rem;
+            color: rgba(255,255,255,0.38);
         }
 
         /* ===== RESPONSIVE ===== */
@@ -987,18 +1026,23 @@
             .nav-links { display: none; }
             .hamburger { display: flex; }
             .contact-wrapper { grid-template-columns: 1fr; }
-            .form-row { grid-template-columns: 1fr; }
+            .qb-form-row { grid-template-columns: 1fr; }
+            .qb-actions { grid-template-columns: 1fr; }
             section { padding: 52px 20px; }
-            .hero { padding: 60px 20px 80px; }
-            .trust-bar { gap: 20px; }
-            .trust-item { font-size: 0.8rem; }
+            .hero { padding: 80px 20px 90px; }
+            .trust-bar { gap: 18px; }
+            .showroom-body { padding: 12px 56px; }
         }
 
         @media (max-width: 500px) {
             .why-points { grid-template-columns: 1fr; }
             .hero-buttons { flex-direction: column; align-items: center; }
             .btn-primary, .btn-secondary { width: 100%; max-width: 280px; text-align: center; }
-            .contact-form { padding: 24px 18px; }
+            .quote-builder { padding: 22px 16px; }
+            .showroom-body { padding: 10px 48px; }
+            .showroom-nav-btn { width: 40px; height: 40px; font-size: 1.4rem; }
+            .showroom-nav-btn.prev { left: 4px; }
+            .showroom-nav-btn.next { right: 4px; }
         }
     </style>
 </head>
@@ -1006,9 +1050,12 @@
 
 <!-- NAV -->
 <nav>
-    <a href="#" class="nav-logo-wrap">
+    <a href="#" class="nav-logo">
         <span class="nav-logo-icon">🌿</span>
-        <span class="nav-logo-text">Hunter's Lawn<br><span>&amp; Landscape</span></span>
+        <span class="nav-logo-text">
+            <span class="nav-logo-name">HUNTER'S</span>
+            <span class="nav-logo-sub">Lawn &amp; Landscape</span>
+        </span>
     </a>
     <ul class="nav-links">
         <li><a href="#services">Services</a></li>
@@ -1053,49 +1100,6 @@
         <div class="hero-buttons">
             <a href="#contact" class="btn-primary">Get a Free Quote</a>
             <a href="tel:6157726134" class="btn-secondary">Call 615-772-6134</a>
-        </div>
-
-        <!-- State Map -->
-        <div class="state-map-wrap">
-            <svg class="state-map-svg" viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg">
-                <!-- Kentucky -->
-                <path class="state-shape" d="
-                    M 58,18 L 462,18
-                    L 464,130
-                    L 435,130 L 433,148
-                    L 92,146 L 90,168
-                    L 58,165 Z
-                "/>
-                <text class="state-label-text" x="268" y="100">KENTUCKY</text>
-
-                <!-- Tennessee -->
-                <path class="state-shape" d="
-                    M 28,168 L 58,165
-                    L 60,146 L 92,146
-                    L 92,168 L 433,150
-                    L 435,130 L 466,132
-                    L 468,205
-                    L 28,208 Z
-                "/>
-                <text class="state-label-text" x="245" y="190">TENNESSEE</text>
-
-                <!-- Alabama -->
-                <path class="state-shape" d="
-                    M 265,208 L 378,205
-                    L 382,358
-                    L 268,360 Z
-                "/>
-                <text class="state-label-text" x="324" y="292">ALABAMA</text>
-
-                <!-- Portland TN pin (43% from west, near north border) -->
-                <!-- Animated pulse ring -->
-                <circle class="pin-pulse" cx="219" cy="178" r="8"/>
-                <!-- Pin dot -->
-                <circle class="pin-dot" cx="219" cy="178" r="5"/>
-                <!-- Pin label -->
-                <text class="pin-label" x="219" y="165">Portland, TN</text>
-            </svg>
-            <div class="state-map-label">Servicing Tennessee &middot; Kentucky &middot; Alabama</div>
         </div>
     </div>
 </section>
@@ -1149,7 +1153,7 @@
             <div class="service-card">
                 <span class="service-icon">❄️</span>
                 <h3>Snow Removal &amp; Ice Control</h3>
-                <p>Commercial and residential snow plowing with heavy equipment. -10&deg; salt available. Parking lots, driveways, and access roads &mdash; call anytime.</p>
+                <p>Commercial and residential snow plowing with heavy equipment. -10&deg; salt available. Parking lots, driveways &mdash; call anytime.</p>
             </div>
             <div class="service-card">
                 <span class="service-icon">🌱</span>
@@ -1160,10 +1164,10 @@
     </div>
 </section>
 
-<!-- PORTFOLIO -->
+<!-- PORTFOLIO / OUR WORK -->
 <section id="work">
     <div class="container text-center">
-        <div class="section-label">Recent Projects</div>
+        <div class="section-label">Recently Completed</div>
         <h2>Work We're Proud Of</h2>
         <p class="section-sub">Real projects, real results. Here's a look at what we've been building across Middle Tennessee and beyond.</p>
         <div class="portfolio-grid">
@@ -1205,45 +1209,43 @@
             </div>
         </div>
 
-        <!-- Photo Gallery -->
-        <div class="gallery-heading">Photos from the Field</div>
-        <div class="photo-grid" id="photoGrid">
-            <!-- Photos will be loaded here. Drop images into the /images folder.
-                 Name them: project-1.jpg, project-2.jpg, etc.
-                 Update the src and alt attributes below to match your files. -->
-            <div class="photo-item" onclick="openLightbox(this)">
-                <img src="images/project-1.jpg" alt="Rip rap driveway installation – Portland, TN" onerror="this.parentElement.innerHTML=placeholderHTML('Rip Rap Driveway')">
-                <div class="photo-overlay"><span>Rip Rap Driveway &mdash; Portland, TN</span></div>
-            </div>
-            <div class="photo-item" onclick="openLightbox(this)">
-                <img src="images/project-2.jpg" alt="Rock drainage channel – Hendersonville, TN" onerror="this.parentElement.innerHTML=placeholderHTML('Rock Drainage Channel')">
-                <div class="photo-overlay"><span>Rock Drainage Channel &mdash; Hendersonville, TN</span></div>
-            </div>
-            <div class="photo-item" onclick="openLightbox(this)">
-                <img src="images/project-3.jpg" alt="Outdoor renovation – Goodlettsville, TN" onerror="this.parentElement.innerHTML=placeholderHTML('Outdoor Renovation')">
-                <div class="photo-overlay"><span>Outdoor Renovation &mdash; Goodlettsville, TN</span></div>
-            </div>
-            <div class="photo-item" onclick="openLightbox(this)">
-                <img src="images/project-4.jpg" alt="Commercial snow plowing – Portland, TN" onerror="this.parentElement.innerHTML=placeholderHTML('Commercial Snow Plowing')">
-                <div class="photo-overlay"><span>Commercial Snow Plowing &mdash; Portland, TN</span></div>
-            </div>
-            <div class="photo-item" onclick="openLightbox(this)">
-                <img src="images/project-5.jpg" alt="Block retaining wall steps – Lafayette, TN" onerror="this.parentElement.innerHTML=placeholderHTML('Retaining Wall Steps')">
-                <div class="photo-overlay"><span>Retaining Wall Steps &mdash; Lafayette, TN</span></div>
-            </div>
-            <div class="photo-item" onclick="openLightbox(this)">
-                <img src="images/project-6.jpg" alt="Spring cleanup and bed refresh – Nashville, TN" onerror="this.parentElement.innerHTML=placeholderHTML('Spring Cleanup')">
-                <div class="photo-overlay"><span>Spring Cleanup &mdash; Nashville, TN</span></div>
-            </div>
+        <!-- Showroom Entry -->
+        <div class="gallery-entry">
+            <div class="gallery-entry-label">Photo Gallery</div>
+            <button class="gallery-entry-btn" onclick="openShowroom()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="7" width="18" height="13" rx="2"/>
+                    <circle cx="12" cy="13.5" r="2.8"/>
+                    <path d="M8 7V5a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/>
+                </svg>
+                View Our Work Gallery
+            </button>
+            <p class="gallery-entry-note">Tap to browse recently completed projects &rarr;</p>
         </div>
     </div>
 </section>
 
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-    <img id="lightboxImg" src="" alt="">
-    <div class="lightbox-caption" id="lightboxCaption"></div>
+<!-- SHOWROOM OVERLAY -->
+<div class="showroom" id="showroom" role="dialog" aria-modal="true" aria-label="Project gallery">
+    <div class="showroom-top">
+        <div class="showroom-title">
+            <span>Hunter's Lawn &amp; Landscape</span> &mdash; Recently Completed Projects
+        </div>
+        <div class="showroom-counter" id="showroomCounter">1 / 6</div>
+        <button class="showroom-close" onclick="closeShowroom()" aria-label="Close gallery">&times;</button>
+    </div>
+    <div class="showroom-body">
+        <button class="showroom-nav-btn prev" onclick="prevSlide()" aria-label="Previous">&#8249;</button>
+        <div class="showroom-img-wrap" id="showroomImgWrap">
+            <!-- populated by JS -->
+        </div>
+        <button class="showroom-nav-btn next" onclick="nextSlide()" aria-label="Next">&#8250;</button>
+    </div>
+    <div class="showroom-footer">
+        <div class="showroom-caption" id="showroomCaption"></div>
+        <div class="showroom-location" id="showroomLocation"></div>
+        <div class="showroom-dots" id="showroomDots"></div>
+    </div>
 </div>
 
 <!-- WHY US -->
@@ -1308,59 +1310,41 @@
     <div class="container text-center">
         <div class="section-label">Where We Work</div>
         <h2>Serving Tennessee, Kentucky &amp; Alabama</h2>
-        <p class="section-sub">Based in Portland, TN &mdash; we cover the greater Nashville area and take on projects across Tennessee, Kentucky, and Alabama.</p>
-        <div class="service-area-map">
-            <svg class="state-map-svg" viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg">
-                <!-- Kentucky -->
-                <path class="state-shape" d="
-                    M 58,18 L 462,18
-                    L 464,130
-                    L 435,130 L 433,148
-                    L 92,146 L 90,168
-                    L 58,165 Z
-                "/>
-                <text class="state-label-text" x="268" y="100">KENTUCKY</text>
-
-                <!-- Tennessee -->
-                <path class="state-shape" d="
-                    M 28,168 L 58,165
-                    L 60,146 L 92,146
-                    L 92,168 L 433,150
-                    L 435,130 L 466,132
-                    L 468,205
-                    L 28,208 Z
-                "/>
-                <text class="state-label-text" x="245" y="190">TENNESSEE</text>
-
-                <!-- Alabama -->
-                <path class="state-shape" d="
-                    M 265,208 L 378,205
-                    L 382,358
-                    L 268,360 Z
-                "/>
-                <text class="state-label-text" x="324" y="292">ALABAMA</text>
-
-                <!-- Portland TN pin -->
-                <circle class="pin-pulse" cx="219" cy="178" r="8"/>
-                <circle class="pin-dot" cx="219" cy="178" r="5"/>
-                <text class="pin-label" x="219" y="165">Portland, TN</text>
-            </svg>
-            <div class="state-map-label" style="color: var(--stone-dark);">Servicing Tennessee &middot; Kentucky &middot; Alabama</div>
+        <p class="section-sub">Based in Portland, TN &mdash; we take on projects across Tennessee, Kentucky, and Alabama. Call us to confirm coverage in your area.</p>
+        <div class="service-area-states">
+            <div class="service-state-badge">
+                <div class="state-flag">🏔️</div>
+                <h4>Tennessee</h4>
+                <p>Home base &middot; All of Middle TN</p>
+            </div>
+            <div class="service-state-badge">
+                <div class="state-flag">🌾</div>
+                <h4>Kentucky</h4>
+                <p>South KY service areas</p>
+            </div>
+            <div class="service-state-badge">
+                <div class="state-flag">🌲</div>
+                <h4>Alabama</h4>
+                <p>North AL service areas</p>
+            </div>
         </div>
-        <p style="margin-top: 24px; color: var(--text-gray); font-size: 0.9rem;">
-            Not sure if we serve your area? <a href="tel:6157726134" style="color: var(--stone-accent); font-weight: 600;">Give us a call</a> &mdash; we're happy to check.
+        <p style="color: var(--text-gray); font-size: 0.9rem;">
+            Not sure if we serve your area?
+            <a href="tel:6157726134" style="color: var(--tan); font-weight: 600;">Give us a call</a>
+            &mdash; we're happy to check.
         </p>
     </div>
 </section>
 
-<!-- CONTACT -->
+<!-- CONTACT / QUOTE BUILDER -->
 <section id="contact">
     <div class="container text-center">
-        <div class="section-label" style="color: var(--tan);">Get In Touch</div>
-        <h2>Ready to Get Started?</h2>
-        <p class="section-sub">Fill out the form below or give us a call. We'll get back to you fast with a free estimate.</p>
+        <div class="section-label">Get In Touch</div>
+        <h2>Request a Free Quote</h2>
+        <p class="section-sub">Fill out the form below and we'll generate a message you can send directly by text or email &mdash; no middleman, goes straight to us.</p>
         <div class="contact-wrapper">
-            <!-- Contact Info -->
+
+            <!-- Left: Direct contact info -->
             <div class="contact-info">
                 <h3>Reach Us Directly</h3>
                 <div class="contact-detail">
@@ -1405,53 +1389,59 @@
                 <a href="tel:6157726134" class="phone-cta-btn">📞 Call Now &mdash; It's Free</a>
             </div>
 
-            <!-- Contact Form -->
-            <div class="contact-form">
-                <h3>Request a Free Quote</h3>
-                <!--
-                    FORMSPREE SETUP:
-                    1. Go to https://formspree.io and create a free account
-                    2. Create a new form forwarding to Hunterslandscape@gmail.com
-                    3. Replace YOUR_FORM_ID below with your actual form ID (e.g. xpwzabcd)
-                    The subject line will auto-update to the selected service.
-                -->
-                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="quoteForm">
-                    <input type="hidden" name="_subject" id="formSubject" value="New Quote Request – Hunter's Lawn &amp; Landscape">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" placeholder="John Smith" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" placeholder="615-000-0000" required>
-                        </div>
+            <!-- Right: Quote Builder -->
+            <div class="quote-builder" id="quoteBuilder">
+                <h3>Build Your Quote Message</h3>
+                <div class="qb-form-row">
+                    <div class="qb-group">
+                        <label for="qbName">Your Name *</label>
+                        <input type="text" id="qbName" placeholder="John Smith" oninput="updatePreview()">
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="you@example.com">
+                    <div class="qb-group">
+                        <label for="qbPhone">Your Phone *</label>
+                        <input type="tel" id="qbPhone" placeholder="615-000-0000" oninput="updatePreview()">
                     </div>
-                    <div class="form-group">
-                        <label for="service">Service Needed *</label>
-                        <select id="service" name="service" required>
-                            <option value="" disabled selected>Select a service...</option>
-                            <option>Lawn Mowing &amp; Maintenance</option>
-                            <option>Retaining Walls</option>
-                            <option>Driveways &amp; Hardscapes</option>
-                            <option>Drainage &amp; Erosion Control</option>
-                            <option>Leaf Removal &amp; Cleanup</option>
-                            <option>Landscaping &amp; Planting</option>
-                            <option>Snow Removal &amp; Ice Control</option>
-                            <option>Sod Installation &amp; Seeding</option>
-                            <option>Other / Not Sure</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Tell Us About Your Project</label>
-                        <textarea id="message" name="message" placeholder="Describe your yard, what you need done, any specific concerns..."></textarea>
-                    </div>
-                    <button type="submit" class="form-submit">Send My Free Quote Request &rarr;</button>
-                </form>
+                </div>
+                <div class="qb-group">
+                    <label for="qbCity">City / Location *</label>
+                    <input type="text" id="qbCity" placeholder="Portland, TN" oninput="updatePreview()">
+                </div>
+                <div class="qb-group">
+                    <label for="qbService">Service Needed *</label>
+                    <select id="qbService" onchange="updatePreview()">
+                        <option value="" disabled selected>Select a service...</option>
+                        <option>Lawn Mowing &amp; Maintenance</option>
+                        <option>Retaining Walls</option>
+                        <option>Driveways &amp; Hardscapes</option>
+                        <option>Drainage &amp; Erosion Control</option>
+                        <option>Leaf Removal &amp; Cleanup</option>
+                        <option>Landscaping &amp; Planting</option>
+                        <option>Snow Removal &amp; Ice Control</option>
+                        <option>Sod Installation &amp; Seeding</option>
+                        <option>Other / Not Sure</option>
+                    </select>
+                </div>
+                <div class="qb-group">
+                    <label for="qbDetails">Project Details (optional)</label>
+                    <textarea id="qbDetails" placeholder="Any details about your property or project..." oninput="updatePreview()"></textarea>
+                </div>
+
+                <!-- Live message preview -->
+                <div class="qb-preview-wrap">
+                    <div class="qb-preview-label">Message preview</div>
+                    <div class="qb-preview" id="qbPreview">Fill in your name, phone, city, and service above to generate your message.</div>
+                </div>
+
+                <!-- Send buttons -->
+                <div class="qb-actions">
+                    <a class="qb-btn qb-btn-text disabled" id="btnText" href="#" onclick="return false;">
+                        📱 Send as Text
+                    </a>
+                    <a class="qb-btn qb-btn-email disabled" id="btnEmail" href="#" onclick="return false;">
+                        ✉️ Send as Email
+                    </a>
+                </div>
+                <p class="qb-hint">📱 Text button opens your SMS app &middot; ✉️ Email opens your mail app</p>
             </div>
         </div>
     </div>
@@ -1460,8 +1450,8 @@
 <!-- FOOTER -->
 <footer>
     <p class="footer-name">Hunter's Lawn &amp; Landscape</p>
-    <p class="footer-location">Based out of Portland, TN 37148</p>
-    <p class="footer-contact">
+    <p>Based out of Portland, TN 37148</p>
+    <p>
         <a href="tel:6157726134">615-772-6134</a>
         &nbsp;&middot;&nbsp;
         <a href="mailto:Hunterslandscape@gmail.com">Hunterslandscape@gmail.com</a>
@@ -1472,62 +1462,160 @@
 <script>
     // ===== MOBILE NAV =====
     const hamburger = document.getElementById('hamburger');
-    const mobileNav  = document.getElementById('mobileNav');
+    const mobileNav = document.getElementById('mobileNav');
 
     hamburger.addEventListener('click', () => mobileNav.classList.toggle('open'));
-
     function closeMobileNav() { mobileNav.classList.remove('open'); }
-
     document.addEventListener('click', (e) => {
         if (!hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
             mobileNav.classList.remove('open');
         }
     });
 
-    // ===== DYNAMIC FORM SUBJECT =====
-    const serviceSelect  = document.getElementById('service');
-    const formSubject    = document.getElementById('formSubject');
+    // ===== QUOTE BUILDER =====
+    function buildMessage() {
+        const name    = document.getElementById('qbName').value.trim();
+        const phone   = document.getElementById('qbPhone').value.trim();
+        const city    = document.getElementById('qbCity').value.trim();
+        const service = document.getElementById('qbService').value;
+        const details = document.getElementById('qbDetails').value.trim();
 
-    serviceSelect.addEventListener('change', function () {
-        const val = this.value;
-        formSubject.value = val
-            ? 'Quote Request: ' + val + ' \u2013 Hunter\'s Lawn & Landscape'
-            : 'New Quote Request \u2013 Hunter\'s Lawn & Landscape';
-    });
+        if (!name || !phone || !city || !service) return null;
 
-    // ===== PHOTO GALLERY PLACEHOLDERS =====
-    function placeholderHTML(label) {
-        return '<div class="photo-item-placeholder">'
-            + '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="13" rx="2"/><circle cx="12" cy="13.5" r="3"/><path d="M8 7V5a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/></svg>'
-            + '<span>' + label + '</span>'
-            + '</div>';
+        let msg = "Hi Hunter\u2019s Lawn & Landscape! \uD83D\uDC4B\n\n";
+        msg += "My name is " + name + " and I\u2019m reaching out from " + city + ".\n";
+        msg += "I\u2019m interested in: " + service + "\n";
+        if (details) {
+            msg += "\nProject details: " + details + "\n";
+        }
+        msg += "\nBest way to reach me: " + phone + "\n\nThank you!";
+        return msg;
     }
 
-    // ===== LIGHTBOX =====
-    const lightbox        = document.getElementById('lightbox');
-    const lightboxImg     = document.getElementById('lightboxImg');
-    const lightboxCaption = document.getElementById('lightboxCaption');
+    function updatePreview() {
+        const msg = buildMessage();
+        const preview = document.getElementById('qbPreview');
+        const btnText  = document.getElementById('btnText');
+        const btnEmail = document.getElementById('btnEmail');
+        const service  = document.getElementById('qbService').value;
 
-    function openLightbox(card) {
-        const img = card.querySelector('img');
-        if (!img) return;
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        const caption = card.querySelector('.photo-overlay span');
-        lightboxCaption.textContent = caption ? caption.textContent : '';
-        lightbox.classList.add('active');
+        if (!msg) {
+            preview.textContent = 'Fill in your name, phone, city, and service above to generate your message.';
+            btnText.classList.add('disabled');
+            btnEmail.classList.add('disabled');
+            btnText.href  = '#';
+            btnEmail.href = '#';
+            return;
+        }
+
+        preview.textContent = msg;
+
+        const encoded = encodeURIComponent(msg);
+        const subject  = encodeURIComponent('Quote Request: ' + service + ' \u2013 Hunter\u2019s Lawn & Landscape');
+
+        btnText.href  = 'sms:+16157726134?&body=' + encoded;
+        btnEmail.href = 'mailto:Hunterslandscape@gmail.com?subject=' + subject + '&body=' + encoded;
+
+        btnText.classList.remove('disabled');
+        btnEmail.classList.remove('disabled');
+
+        // re-enable click for anchor
+        btnText.onclick  = null;
+        btnEmail.onclick = null;
+    }
+
+    // ===== SHOWROOM GALLERY =====
+    const slides = [
+        { src: 'images/project-1.jpg', caption: 'Rip Rap Driveway Installation', location: '📍 Portland, TN' },
+        { src: 'images/project-2.jpg', caption: 'Rock Channel Drainage System',  location: '📍 Hendersonville, TN' },
+        { src: 'images/project-3.jpg', caption: 'Large Outdoor Renovation',       location: '📍 Goodlettsville, TN' },
+        { src: 'images/project-4.jpg', caption: 'Commercial Snow Plowing',        location: '📍 Portland, TN' },
+        { src: 'images/project-5.jpg', caption: 'Block Retaining Wall Steps',     location: '📍 Lafayette, TN' },
+        { src: 'images/project-6.jpg', caption: 'Spring Cleanup & Bed Refresh',   location: '📍 Nashville, TN' },
+    ];
+
+    let currentSlide = 0;
+    let touchStartX  = 0;
+    let touchEndX    = 0;
+
+    function openShowroom() {
+        buildDots();
+        showSlide(0);
+        document.getElementById('showroom').classList.add('active');
         document.body.style.overflow = 'hidden';
     }
 
-    function closeLightbox(e) {
-        if (e && e.target !== lightbox && !e.target.classList.contains('lightbox-close')) return;
-        lightbox.classList.remove('active');
+    function closeShowroom() {
+        document.getElementById('showroom').classList.remove('active');
         document.body.style.overflow = '';
-        lightboxImg.src = '';
     }
 
+    function buildDots() {
+        const dotsEl = document.getElementById('showroomDots');
+        dotsEl.innerHTML = '';
+        slides.forEach((_, i) => {
+            const btn = document.createElement('button');
+            btn.className = 'showroom-dot' + (i === 0 ? ' active' : '');
+            btn.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+            btn.onclick = () => showSlide(i);
+            dotsEl.appendChild(btn);
+        });
+    }
+
+    function showSlide(n) {
+        currentSlide = (n + slides.length) % slides.length;
+        const slide   = slides[currentSlide];
+        const wrap    = document.getElementById('showroomImgWrap');
+        const caption = document.getElementById('showroomCaption');
+        const loc     = document.getElementById('showroomLocation');
+        const counter = document.getElementById('showroomCounter');
+        const dots    = document.querySelectorAll('.showroom-dot');
+
+        // Build image element
+        wrap.innerHTML = '';
+        const img = document.createElement('img');
+        img.alt = slide.caption;
+        img.onerror = () => {
+            wrap.innerHTML =
+                '<div class="showroom-placeholder-slide">'
+                + '<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="7" width="18" height="13" rx="2"/><circle cx="12" cy="13.5" r="3"/><path d="M8 7V5a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/></svg>'
+                + '<p>Photo coming soon</p>'
+                + '</div>';
+        };
+        img.src = slide.src;
+        wrap.appendChild(img);
+
+        caption.textContent = slide.caption;
+        loc.textContent     = slide.location;
+        counter.textContent = (currentSlide + 1) + ' / ' + slides.length;
+
+        dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+    }
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function prevSlide() { showSlide(currentSlide - 1); }
+
+    // Keyboard nav
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeLightbox({target: lightbox});
+        const showroom = document.getElementById('showroom');
+        if (!showroom.classList.contains('active')) return;
+        if (e.key === 'Escape')      closeShowroom();
+        if (e.key === 'ArrowRight')  nextSlide();
+        if (e.key === 'ArrowLeft')   prevSlide();
+    });
+
+    // Touch / swipe support
+    const showroomEl = document.getElementById('showroom');
+    showroomEl.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+    showroomEl.addEventListener('touchend',   (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) { diff > 0 ? nextSlide() : prevSlide(); }
+    });
+
+    // Click outside image area to close
+    showroomEl.addEventListener('click', (e) => {
+        if (e.target === showroomEl) closeShowroom();
     });
 </script>
 </body>
