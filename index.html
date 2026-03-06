@@ -706,7 +706,7 @@
         .why-point {
             display: flex;
             gap: 10px;
-            align-items: center;
+            align-items: flex-start;
             background: var(--white);
             padding: 12px 12px;
             border-radius: var(--radius);
@@ -743,35 +743,36 @@
         #service-area { background: var(--cream); }
 
         .service-area-states {
-            display: flex;
-            justify-content: center;
-            gap: 32px;
-            margin: 36px 0 28px;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 28px 0 20px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .service-state-badge {
             background: var(--white);
             border: 2px solid var(--tan);
-            border-radius: 12px;
-            padding: 18px 28px;
+            border-radius: 10px;
+            padding: 12px 10px;
             text-align: center;
-            min-width: 140px;
-            box-shadow: var(--shadow);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
-        .service-state-badge .state-flag { font-size: 2rem; margin-bottom: 8px; }
+        .service-state-badge .state-flag { font-size: 1.4rem; margin-bottom: 5px; }
 
         .service-state-badge h4 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 0.95rem;
+            font-size: 0.82rem;
             color: var(--gray-dark);
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
         .service-state-badge p {
-            font-size: 0.78rem;
+            font-size: 0.68rem;
             color: var(--text-gray);
         }
 
