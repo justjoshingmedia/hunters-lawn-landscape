@@ -4,23 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hunter's Lawn & Landscape | Portland, TN</title>
-    <meta name="description" content="Professional lawn care and landscaping services in Portland, TN and greater Nashville area. Mowing, hardscaping, drainage, retaining walls, snow removal, and more.">
+    <meta name="description" content="Professional lawn care and landscaping services in Tennessee, Kentucky, and Alabama. Mowing, hardscaping, drainage, retaining walls, snow removal, and more.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         /* ===== CSS CUSTOM PROPERTIES ===== */
         :root {
-            --green-dark: #1a3a1a;
-            --green-mid: #2d5a2d;
-            --green-accent: #4a9e4a;
-            --green-light: #e8f5e8;
+            --stone-dark: #2e2b27;
+            --stone-mid: #4a4540;
+            --stone-accent: #7a7260;
+            --stone-light: #f0ece4;
             --tan: #c8a96e;
-            --cream: #fdf8f0;
+            --cream: #f7f3ec;
             --white: #ffffff;
             --text-dark: #1a1a1a;
-            --text-gray: #555555;
-            --shadow: 0 4px 20px rgba(0,0,0,0.12);
+            --text-gray: #5a5550;
+            --shadow: 0 4px 20px rgba(0,0,0,0.14);
             --radius: 8px;
+        }
+
+        /* Stone texture mixin applied via class */
+        .stone-texture {
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(255,255,255,0.012) 3px, rgba(255,255,255,0.012) 6px),
+                repeating-linear-gradient(-45deg, transparent, transparent 3px, rgba(0,0,0,0.025) 3px, rgba(0,0,0,0.025) 6px);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -36,37 +43,78 @@
         nav {
             position: sticky;
             top: 0;
-            background: var(--green-dark);
+            background: var(--stone-dark);
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(255,255,255,0.012) 3px, rgba(255,255,255,0.012) 6px),
+                repeating-linear-gradient(-45deg, transparent, transparent 3px, rgba(0,0,0,0.025) 3px, rgba(0,0,0,0.025) 6px);
             z-index: 1000;
-            padding: 0 24px;
+            padding: 0 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 64px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+            height: 68px;
+            box-shadow: 0 2px 14px rgba(0,0,0,0.35);
         }
 
-        .nav-logo {
+        /* ===== NAV LOGO WITH LANDSCAPE BACKGROUND ===== */
+        .nav-logo-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            background: linear-gradient(160deg, #1a3320 0%, #2a4a2a 55%, #3d6b3d 100%);
+            border-radius: 8px;
+            padding: 6px 14px 6px 12px;
+            overflow: hidden;
+            min-width: 148px;
+            height: 52px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3), inset 0 0 0 1px rgba(255,255,255,0.08);
+        }
+
+        /* Tree silhouette landscape at bottom of logo */
+        .nav-logo-wrap::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 22px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 148 22' preserveAspectRatio='none'%3E%3Cpath d='M0,22 L0,14 L6,14 L6,8 L10,8 L10,4 L14,4 L14,8 L18,8 L18,14 L22,14 L22,10 L25,10 L25,6 L28,6 L28,10 L31,10 L31,14 L38,14 L38,9 L42,9 L42,5 L46,5 L46,9 L50,9 L50,14 L55,14 L55,11 L58,11 L58,7 L62,7 L62,11 L65,11 L65,14 L72,14 L72,10 L76,10 L76,6 L80,6 L80,10 L84,10 L84,14 L90,14 L90,8 L94,8 L94,3 L98,3 L98,8 L102,8 L102,14 L108,14 L108,10 L112,10 L112,6 L116,6 L116,10 L120,10 L120,14 L126,14 L126,11 L130,11 L130,7 L134,7 L134,11 L138,11 L138,14 L148,14 L148,22 Z' fill='rgba(0,0,0,0.35)'/%3E%3Cpath d='M0,22 L0,16 L4,16 L4,13 L7,13 L7,16 L12,16 L12,13 L15,13 L15,11 L18,11 L18,13 L23,13 L23,16 L28,16 L28,12 L32,12 L32,9 L36,9 L36,12 L40,12 L40,16 L46,16 L46,13 L50,13 L50,10 L54,10 L54,13 L58,13 L58,16 L64,16 L64,13 L68,13 L68,10 L72,10 L72,13 L76,13 L76,16 L82,16 L82,12 L86,12 L86,9 L90,9 L90,12 L94,12 L94,16 L100,16 L100,13 L104,13 L104,10 L108,10 L108,13 L112,13 L112,16 L118,16 L118,13 L122,13 L122,10 L126,10 L126,13 L130,13 L130,16 L136,16 L136,13 L140,13 L140,11 L144,11 L144,13 L148,13 L148,22 Z' fill='rgba(0,80,0,0.25)'/%3E%3C/svg%3E") no-repeat bottom center / 100% 100%;
+        }
+
+        .nav-logo-text {
+            position: relative;
+            z-index: 1;
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             color: var(--white);
-            text-decoration: none;
             line-height: 1.2;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
         }
 
-        .nav-logo span { color: var(--tan); }
+        .nav-logo-text span { color: var(--tan); }
+
+        .nav-logo-icon {
+            position: relative;
+            z-index: 1;
+            font-size: 1.4rem;
+            line-height: 1;
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.4));
+        }
 
         .nav-links {
             display: flex;
-            gap: 28px;
+            gap: 24px;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
             color: rgba(255,255,255,0.85);
             text-decoration: none;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             font-weight: 600;
             letter-spacing: 0.4px;
             transition: color 0.2s;
@@ -76,11 +124,37 @@
 
         .nav-cta {
             background: var(--tan);
-            color: var(--green-dark) !important;
-            padding: 8px 18px;
+            color: var(--stone-dark) !important;
+            padding: 7px 15px;
             border-radius: 4px;
             font-weight: 700 !important;
+            font-size: 0.82rem !important;
         }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .nav-fb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #1877F2;
+            transition: transform 0.2s, box-shadow 0.2s;
+            flex-shrink: 0;
+        }
+
+        .nav-fb:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(24,119,242,0.5);
+        }
+
+        .nav-fb svg { display: block; }
 
         .hamburger {
             display: none;
@@ -103,10 +177,10 @@
         .mobile-nav {
             display: none;
             position: fixed;
-            top: 64px;
+            top: 68px;
             left: 0;
             right: 0;
-            background: var(--green-dark);
+            background: var(--stone-dark);
             z-index: 999;
             flex-direction: column;
             padding: 16px 0;
@@ -123,14 +197,21 @@
             font-weight: 600;
             border-bottom: 1px solid rgba(255,255,255,0.08);
             transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .mobile-nav a:last-child { border-bottom: none; }
-        .mobile-nav a:hover { background: rgba(255,255,255,0.08); }
+        .mobile-nav a:hover { background: rgba(255,255,255,0.07); }
 
         /* ===== HERO ===== */
         .hero {
-            background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 60%, #3d7a3d 100%);
+            background: linear-gradient(135deg, var(--stone-dark) 0%, var(--stone-mid) 60%, #5c5650 100%);
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(255,255,255,0.008) 3px, rgba(255,255,255,0.008) 6px),
+                repeating-linear-gradient(-45deg, transparent, transparent 3px, rgba(0,0,0,0.02) 3px, rgba(0,0,0,0.02) 6px),
+                linear-gradient(135deg, var(--stone-dark) 0%, var(--stone-mid) 60%, #5c5650 100%);
             color: var(--white);
             padding: 80px 24px 100px;
             text-align: center;
@@ -142,19 +223,19 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
 
         .hero-content { position: relative; max-width: 720px; margin: 0 auto; }
 
         .hero-badge {
             display: inline-block;
-            background: rgba(200,169,110,0.2);
+            background: rgba(200,169,110,0.18);
             border: 1px solid var(--tan);
             color: var(--tan);
             padding: 6px 16px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -172,26 +253,27 @@
         .hero h1 span { color: var(--tan); }
 
         .hero p {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: rgba(255,255,255,0.85);
             max-width: 560px;
-            margin: 0 auto 36px;
+            margin: 0 auto 32px;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 14px;
+            gap: 12px;
             justify-content: center;
             flex-wrap: wrap;
+            margin-bottom: 48px;
         }
 
         .btn-primary {
             background: var(--tan);
-            color: var(--green-dark);
-            padding: 16px 32px;
+            color: var(--stone-dark);
+            padding: 12px 24px;
             border-radius: var(--radius);
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.92rem;
             text-decoration: none;
             transition: transform 0.2s, box-shadow 0.2s;
             display: inline-block;
@@ -205,10 +287,10 @@
         .btn-secondary {
             background: transparent;
             color: var(--white);
-            padding: 16px 32px;
+            padding: 12px 24px;
             border-radius: var(--radius);
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.92rem;
             text-decoration: none;
             border: 2px solid rgba(255,255,255,0.4);
             transition: border-color 0.2s, background 0.2s;
@@ -220,9 +302,82 @@
             background: rgba(255,255,255,0.1);
         }
 
+        /* ===== STATE MAP ===== */
+        .state-map-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .state-map-svg {
+            width: 100%;
+            max-width: 340px;
+            height: auto;
+            filter: drop-shadow(0 4px 16px rgba(0,0,0,0.4));
+        }
+
+        .state-map-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--tan);
+        }
+
+        /* State fill and stroke */
+        .state-shape {
+            fill: rgba(200,169,110,0.1);
+            stroke: rgba(255,255,255,0.7);
+            stroke-width: 2;
+            stroke-linejoin: round;
+            transition: fill 0.2s;
+        }
+
+        .state-shape:hover { fill: rgba(200,169,110,0.22); }
+
+        .state-label-text {
+            fill: rgba(255,255,255,0.6);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            text-anchor: middle;
+            letter-spacing: 1px;
+        }
+
+        .pin-dot {
+            fill: var(--tan);
+            stroke: var(--white);
+            stroke-width: 1.5;
+        }
+
+        .pin-pulse {
+            fill: none;
+            stroke: var(--tan);
+            stroke-width: 1.5;
+            opacity: 0.6;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { r: 8; opacity: 0.6; }
+            50% { r: 13; opacity: 0; }
+        }
+
+        .pin-label {
+            fill: var(--white);
+            font-size: 9px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            text-anchor: middle;
+        }
+
         /* ===== TRUST BAR ===== */
         .trust-bar {
-            background: var(--green-mid);
+            background: var(--stone-mid);
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(255,255,255,0.01) 3px, rgba(255,255,255,0.01) 6px);
             padding: 16px 24px;
             display: flex;
             justify-content: center;
@@ -249,7 +404,7 @@
         section { padding: 72px 24px; }
 
         .section-label {
-            color: var(--green-accent);
+            color: var(--stone-accent);
             font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 2px;
@@ -261,7 +416,7 @@
             font-family: 'Montserrat', sans-serif;
             font-size: clamp(1.7rem, 3.5vw, 2.4rem);
             font-weight: 800;
-            color: var(--green-dark);
+            color: var(--stone-dark);
             margin-bottom: 16px;
             line-height: 1.2;
         }
@@ -281,42 +436,42 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
             margin-top: 48px;
         }
 
         .service-card {
             background: var(--white);
             border-radius: 12px;
-            padding: 32px 28px;
+            padding: 22px 18px;
             box-shadow: var(--shadow);
-            border-top: 4px solid var(--green-accent);
+            border-top: 4px solid var(--tan);
             transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .service-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 36px rgba(0,0,0,0.15);
+            box-shadow: 0 12px 36px rgba(0,0,0,0.13);
         }
 
         .service-icon {
-            font-size: 2.2rem;
-            margin-bottom: 16px;
+            font-size: 1.7rem;
+            margin-bottom: 12px;
             display: block;
         }
 
         .service-card h3 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             font-weight: 700;
-            color: var(--green-dark);
-            margin-bottom: 10px;
+            color: var(--stone-dark);
+            margin-bottom: 8px;
         }
 
         .service-card p {
             color: var(--text-gray);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             line-height: 1.6;
         }
 
@@ -329,9 +484,11 @@
         }
 
         .portfolio-card {
-            background: var(--green-dark);
+            background: var(--stone-dark);
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(255,255,255,0.01) 3px, rgba(255,255,255,0.01) 6px);
             border-radius: 12px;
-            padding: 36px 28px;
+            padding: 32px 24px;
             color: var(--white);
             position: relative;
             overflow: hidden;
@@ -345,45 +502,179 @@
             position: absolute;
             top: 0; right: 0;
             width: 100px; height: 100px;
-            background: rgba(74,158,74,0.15);
+            background: rgba(200,169,110,0.1);
             border-radius: 50%;
             transform: translate(30px, -30px);
         }
 
         .portfolio-tag {
             background: var(--tan);
-            color: var(--green-dark);
+            color: var(--stone-dark);
             font-size: 0.7rem;
             font-weight: 700;
             padding: 4px 12px;
             border-radius: 20px;
             display: inline-block;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
             letter-spacing: 0.5px;
         }
 
         .portfolio-card h3 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .portfolio-card p {
-            font-size: 0.88rem;
-            color: rgba(255,255,255,0.78);
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.75);
             line-height: 1.6;
         }
 
         .portfolio-location {
-            margin-top: 16px;
-            font-size: 0.8rem;
+            margin-top: 14px;
+            font-size: 0.78rem;
             color: var(--tan);
             font-weight: 600;
         }
 
+        /* ===== PHOTO GALLERY ===== */
+        .gallery-heading {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--stone-dark);
+            margin: 52px 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .gallery-heading::before,
+        .gallery-heading::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(0,0,0,0.12);
+            max-width: 200px;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-top: 4px;
+        }
+
+        .photo-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 220px;
+            cursor: pointer;
+            background: var(--stone-mid);
+            box-shadow: 0 3px 14px rgba(0,0,0,0.14);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.35s ease;
+        }
+
+        .photo-item:hover img { transform: scale(1.06); }
+
+        .photo-item-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.82rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        .photo-item-placeholder svg { opacity: 0.35; }
+
+        .photo-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%);
+            opacity: 0;
+            transition: opacity 0.25s;
+            display: flex;
+            align-items: flex-end;
+            padding: 16px;
+        }
+
+        .photo-item:hover .photo-overlay { opacity: 1; }
+
+        .photo-overlay span {
+            color: var(--white);
+            font-size: 0.82rem;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* ===== LIGHTBOX ===== */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.92);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .lightbox.active { display: flex; }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 2.2rem;
+            cursor: pointer;
+            line-height: 1;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .lightbox-close:hover { opacity: 1; }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.75);
+            font-size: 0.88rem;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+
         /* ===== WHY US ===== */
-        #why-us { background: var(--green-light); }
+        #why-us { background: var(--stone-light); }
 
         .stats-grid {
             display: grid;
@@ -395,7 +686,7 @@
         .stat-box {
             background: var(--white);
             border-radius: 12px;
-            padding: 32px 20px;
+            padding: 28px 20px;
             text-align: center;
             box-shadow: var(--shadow);
         }
@@ -404,7 +695,7 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 2.4rem;
             font-weight: 800;
-            color: var(--green-dark);
+            color: var(--stone-dark);
             line-height: 1;
         }
 
@@ -416,69 +707,81 @@
 
         .why-points {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
             margin-top: 32px;
         }
 
         .why-point {
             display: flex;
-            gap: 14px;
+            gap: 12px;
             align-items: flex-start;
             background: var(--white);
-            padding: 20px;
+            padding: 18px 14px;
             border-radius: var(--radius);
             box-shadow: 0 2px 10px rgba(0,0,0,0.07);
         }
 
         .why-point-icon {
-            background: var(--green-light);
+            background: var(--stone-light);
             border-radius: 8px;
-            width: 44px;
-            height: 44px;
+            width: 36px;
+            height: 36px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
+            font-size: 1rem;
             flex-shrink: 0;
         }
 
         .why-point-text h4 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.95rem;
+            font-size: 0.88rem;
             font-weight: 700;
-            color: var(--green-dark);
+            color: var(--stone-dark);
             margin-bottom: 4px;
         }
 
         .why-point-text p {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-gray);
         }
 
         /* ===== SERVICE AREA ===== */
         #service-area { background: var(--cream); }
 
-        .area-grid {
+        .service-area-map {
             display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
             margin-top: 32px;
-            justify-content: center;
         }
 
-        .area-tag {
-            background: var(--white);
-            border: 2px solid var(--green-accent);
-            color: var(--green-dark);
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 600;
+        .service-area-map .state-map-svg {
+            max-width: 440px;
         }
+
+        /* State shapes in service area: use stone-dark background */
+        #service-area .state-shape {
+            fill: rgba(46,43,39,0.08);
+            stroke: var(--stone-accent);
+        }
+
+        #service-area .state-label-text { fill: var(--stone-dark); opacity: 0.7; }
+        #service-area .pin-dot { fill: var(--tan); stroke: var(--stone-dark); }
+        #service-area .pin-pulse { stroke: var(--tan); }
+        #service-area .pin-label { fill: var(--stone-dark); }
+        #service-area .state-map-label { color: var(--stone-dark); }
 
         /* ===== CONTACT ===== */
-        #contact { background: var(--green-dark); color: var(--white); }
+        #contact {
+            background: var(--stone-dark);
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(255,255,255,0.012) 3px, rgba(255,255,255,0.012) 6px),
+                repeating-linear-gradient(-45deg, transparent, transparent 3px, rgba(0,0,0,0.025) 3px, rgba(0,0,0,0.025) 6px);
+            color: var(--white);
+        }
         #contact h2 { color: var(--white); }
         #contact .section-sub { color: rgba(255,255,255,0.75); }
 
@@ -538,13 +841,13 @@
             align-items: center;
             gap: 10px;
             background: var(--tan);
-            color: var(--green-dark);
-            padding: 16px 28px;
+            color: var(--stone-dark);
+            padding: 14px 24px;
             border-radius: var(--radius);
             font-weight: 700;
-            font-size: 1.05rem;
+            font-size: 1rem;
             text-decoration: none;
-            margin-top: 24px;
+            margin-top: 20px;
             transition: transform 0.2s, box-shadow 0.2s;
         }
 
@@ -606,7 +909,7 @@
             color: rgba(255,255,255,0.35);
         }
 
-        .form-group select option { background: var(--green-dark); }
+        .form-group select option { background: var(--stone-dark); color: var(--white); }
 
         .form-group input:focus,
         .form-group select:focus,
@@ -620,7 +923,7 @@
         .form-submit {
             width: 100%;
             background: var(--tan);
-            color: var(--green-dark);
+            color: var(--stone-dark);
             border: none;
             padding: 14px 24px;
             border-radius: var(--radius);
@@ -639,17 +942,47 @@
 
         /* ===== FOOTER ===== */
         footer {
-            background: #0f2110;
-            color: rgba(255,255,255,0.6);
+            background: #1a1714;
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(255,255,255,0.008) 3px, rgba(255,255,255,0.008) 6px);
+            color: rgba(255,255,255,0.55);
             text-align: center;
-            padding: 28px 24px;
+            padding: 32px 24px;
+            font-size: 0.85rem;
+            line-height: 1.8;
+        }
+
+        footer .footer-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 800;
+            color: rgba(255,255,255,0.92);
+            letter-spacing: 0.5px;
+        }
+
+        footer .footer-location {
+            color: rgba(255,255,255,0.6);
             font-size: 0.85rem;
         }
 
+        footer .footer-contact {
+            margin-top: 4px;
+        }
+
         footer a { color: var(--tan); text-decoration: none; }
-        footer strong { color: rgba(255,255,255,0.9); }
+        footer a:hover { color: rgba(200,169,110,0.8); }
+
+        footer .footer-serving {
+            margin-top: 6px;
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.4);
+        }
 
         /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .why-points { grid-template-columns: repeat(2, 1fr); }
+        }
+
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .hamburger { display: flex; }
@@ -661,7 +994,8 @@
             .trust-item { font-size: 0.8rem; }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 500px) {
+            .why-points { grid-template-columns: 1fr; }
             .hero-buttons { flex-direction: column; align-items: center; }
             .btn-primary, .btn-secondary { width: 100%; max-width: 280px; text-align: center; }
             .contact-form { padding: 24px 18px; }
@@ -672,7 +1006,10 @@
 
 <!-- NAV -->
 <nav>
-    <a href="#" class="nav-logo">Hunter's Lawn<br><span>&amp; Landscape</span></a>
+    <a href="#" class="nav-logo-wrap">
+        <span class="nav-logo-icon">🌿</span>
+        <span class="nav-logo-text">Hunter's Lawn<br><span>&amp; Landscape</span></span>
+    </a>
     <ul class="nav-links">
         <li><a href="#services">Services</a></li>
         <li><a href="#work">Our Work</a></li>
@@ -680,9 +1017,16 @@
         <li><a href="#service-area">Service Area</a></li>
         <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
     </ul>
-    <button class="hamburger" id="hamburger" aria-label="Open menu">
-        <span></span><span></span><span></span>
-    </button>
+    <div class="nav-right">
+        <a href="https://www.facebook.com/share/1HDg2ukXT2/?mibextid=wwXIfr" target="_blank" rel="noopener" class="nav-fb" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path fill="#ffffff" d="M13.5 8.5H15.5V6H13.5C11.3 6 9.5 7.8 9.5 10V11.5H7.5V14H9.5V21H12V14H14.5L15 11.5H12V10C12 9.2 12.7 8.5 13.5 8.5Z"/>
+            </svg>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
 </nav>
 
 <!-- MOBILE NAV -->
@@ -691,18 +1035,67 @@
     <a href="#work" onclick="closeMobileNav()">Our Work</a>
     <a href="#why-us" onclick="closeMobileNav()">About</a>
     <a href="#service-area" onclick="closeMobileNav()">Service Area</a>
+    <a href="https://www.facebook.com/share/1HDg2ukXT2/?mibextid=wwXIfr" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+            <path fill="#1877F2" d="M13.5 8.5H15.5V6H13.5C11.3 6 9.5 7.8 9.5 10V11.5H7.5V14H9.5V21H12V14H14.5L15 11.5H12V10C12 9.2 12.7 8.5 13.5 8.5Z"/>
+        </svg>
+        Follow Us on Facebook
+    </a>
     <a href="#contact" onclick="closeMobileNav()" style="color: #c8a96e; font-weight: 700;">Get a Free Quote &rarr;</a>
 </div>
 
 <!-- HERO -->
 <section class="hero">
     <div class="hero-content">
-        <div class="hero-badge">Portland, TN &middot; Nashville &amp; Surrounding Areas &middot; Fully Insured</div>
+        <div class="hero-badge">Portland, TN &middot; Serving TN &middot; KY &middot; AL &middot; Fully Insured</div>
         <h1>Your Yard Deserves<br><span>Professional Care</span></h1>
         <p>Hunter's Lawn &amp; Landscape handles everything from weekly mowing to full hardscape installations &mdash; done right, every time.</p>
         <div class="hero-buttons">
             <a href="#contact" class="btn-primary">Get a Free Quote</a>
             <a href="tel:6157726134" class="btn-secondary">Call 615-772-6134</a>
+        </div>
+
+        <!-- State Map -->
+        <div class="state-map-wrap">
+            <svg class="state-map-svg" viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg">
+                <!-- Kentucky -->
+                <path class="state-shape" d="
+                    M 58,18 L 462,18
+                    L 464,130
+                    L 435,130 L 433,148
+                    L 92,146 L 90,168
+                    L 58,165 Z
+                "/>
+                <text class="state-label-text" x="268" y="100">KENTUCKY</text>
+
+                <!-- Tennessee -->
+                <path class="state-shape" d="
+                    M 28,168 L 58,165
+                    L 60,146 L 92,146
+                    L 92,168 L 433,150
+                    L 435,130 L 466,132
+                    L 468,205
+                    L 28,208 Z
+                "/>
+                <text class="state-label-text" x="245" y="190">TENNESSEE</text>
+
+                <!-- Alabama -->
+                <path class="state-shape" d="
+                    M 265,208 L 378,205
+                    L 382,358
+                    L 268,360 Z
+                "/>
+                <text class="state-label-text" x="324" y="292">ALABAMA</text>
+
+                <!-- Portland TN pin (43% from west, near north border) -->
+                <!-- Animated pulse ring -->
+                <circle class="pin-pulse" cx="219" cy="178" r="8"/>
+                <!-- Pin dot -->
+                <circle class="pin-dot" cx="219" cy="178" r="5"/>
+                <!-- Pin label -->
+                <text class="pin-label" x="219" y="165">Portland, TN</text>
+            </svg>
+            <div class="state-map-label">Servicing Tennessee &middot; Kentucky &middot; Alabama</div>
         </div>
     </div>
 </section>
@@ -758,6 +1151,11 @@
                 <h3>Snow Removal &amp; Ice Control</h3>
                 <p>Commercial and residential snow plowing with heavy equipment. -10&deg; salt available. Parking lots, driveways, and access roads &mdash; call anytime.</p>
             </div>
+            <div class="service-card">
+                <span class="service-icon">🌱</span>
+                <h3>Sod Installation &amp; Seeding</h3>
+                <p>New sod laying and overseeding for bare or damaged lawns. We prep the ground right so your lawn grows in thick and healthy.</p>
+            </div>
         </div>
     </div>
 </section>
@@ -767,7 +1165,7 @@
     <div class="container text-center">
         <div class="section-label">Recent Projects</div>
         <h2>Work We're Proud Of</h2>
-        <p class="section-sub">Real projects, real results. Here's a look at what we've been building across Middle Tennessee and greater Nashville.</p>
+        <p class="section-sub">Real projects, real results. Here's a look at what we've been building across Middle Tennessee and beyond.</p>
         <div class="portfolio-grid">
             <div class="portfolio-card">
                 <span class="portfolio-tag">Driveways</span>
@@ -806,8 +1204,47 @@
                 <div class="portfolio-location">📍 Nashville, TN</div>
             </div>
         </div>
+
+        <!-- Photo Gallery -->
+        <div class="gallery-heading">Photos from the Field</div>
+        <div class="photo-grid" id="photoGrid">
+            <!-- Photos will be loaded here. Drop images into the /images folder.
+                 Name them: project-1.jpg, project-2.jpg, etc.
+                 Update the src and alt attributes below to match your files. -->
+            <div class="photo-item" onclick="openLightbox(this)">
+                <img src="images/project-1.jpg" alt="Rip rap driveway installation – Portland, TN" onerror="this.parentElement.innerHTML=placeholderHTML('Rip Rap Driveway')">
+                <div class="photo-overlay"><span>Rip Rap Driveway &mdash; Portland, TN</span></div>
+            </div>
+            <div class="photo-item" onclick="openLightbox(this)">
+                <img src="images/project-2.jpg" alt="Rock drainage channel – Hendersonville, TN" onerror="this.parentElement.innerHTML=placeholderHTML('Rock Drainage Channel')">
+                <div class="photo-overlay"><span>Rock Drainage Channel &mdash; Hendersonville, TN</span></div>
+            </div>
+            <div class="photo-item" onclick="openLightbox(this)">
+                <img src="images/project-3.jpg" alt="Outdoor renovation – Goodlettsville, TN" onerror="this.parentElement.innerHTML=placeholderHTML('Outdoor Renovation')">
+                <div class="photo-overlay"><span>Outdoor Renovation &mdash; Goodlettsville, TN</span></div>
+            </div>
+            <div class="photo-item" onclick="openLightbox(this)">
+                <img src="images/project-4.jpg" alt="Commercial snow plowing – Portland, TN" onerror="this.parentElement.innerHTML=placeholderHTML('Commercial Snow Plowing')">
+                <div class="photo-overlay"><span>Commercial Snow Plowing &mdash; Portland, TN</span></div>
+            </div>
+            <div class="photo-item" onclick="openLightbox(this)">
+                <img src="images/project-5.jpg" alt="Block retaining wall steps – Lafayette, TN" onerror="this.parentElement.innerHTML=placeholderHTML('Retaining Wall Steps')">
+                <div class="photo-overlay"><span>Retaining Wall Steps &mdash; Lafayette, TN</span></div>
+            </div>
+            <div class="photo-item" onclick="openLightbox(this)">
+                <img src="images/project-6.jpg" alt="Spring cleanup and bed refresh – Nashville, TN" onerror="this.parentElement.innerHTML=placeholderHTML('Spring Cleanup')">
+                <div class="photo-overlay"><span>Spring Cleanup &mdash; Nashville, TN</span></div>
+            </div>
+        </div>
     </div>
 </section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
 
 <!-- WHY US -->
 <section id="why-us">
@@ -829,8 +1266,8 @@
                 <div class="stat-label">Insured &amp; Licensed</div>
             </div>
             <div class="stat-box">
-                <div class="stat-number">6+</div>
-                <div class="stat-label">Counties Served</div>
+                <div class="stat-number">3</div>
+                <div class="stat-label">States Served</div>
             </div>
         </div>
         <div class="why-points">
@@ -852,7 +1289,7 @@
                 <div class="why-point-icon">🔧</div>
                 <div class="why-point-text">
                     <h4>Commercial Equipment</h4>
-                    <p>We run professional-grade equipment &mdash; including CAT skid steers &mdash; that gets the job done faster and better.</p>
+                    <p>Professional-grade equipment &mdash; including CAT skid steers &mdash; that gets the job done faster.</p>
                 </div>
             </div>
             <div class="why-point">
@@ -870,26 +1307,49 @@
 <section id="service-area">
     <div class="container text-center">
         <div class="section-label">Where We Work</div>
-        <h2>Serving Nashville &amp; Middle Tennessee</h2>
-        <p class="section-sub">Based in Portland, TN &mdash; we serve Nashville and the surrounding communities across multiple counties. Don't see your city? Give us a call.</p>
-        <div class="area-grid">
-            <span class="area-tag">Nashville, TN</span>
-            <span class="area-tag">Portland, TN</span>
-            <span class="area-tag">Hendersonville, TN</span>
-            <span class="area-tag">Goodlettsville, TN</span>
-            <span class="area-tag">Gallatin, TN</span>
-            <span class="area-tag">White House, TN</span>
-            <span class="area-tag">Springfield, TN</span>
-            <span class="area-tag">Lafayette, TN</span>
-            <span class="area-tag">Westmoreland, TN</span>
-            <span class="area-tag">Brentwood, TN</span>
-            <span class="area-tag">Murfreesboro, TN</span>
-            <span class="area-tag">Smyrna, TN</span>
-            <span class="area-tag">Franklin, TN</span>
-            <span class="area-tag">Clarksville, TN</span>
-            <span class="area-tag">Mount Juliet, TN</span>
+        <h2>Serving Tennessee, Kentucky &amp; Alabama</h2>
+        <p class="section-sub">Based in Portland, TN &mdash; we cover the greater Nashville area and take on projects across Tennessee, Kentucky, and Alabama.</p>
+        <div class="service-area-map">
+            <svg class="state-map-svg" viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg">
+                <!-- Kentucky -->
+                <path class="state-shape" d="
+                    M 58,18 L 462,18
+                    L 464,130
+                    L 435,130 L 433,148
+                    L 92,146 L 90,168
+                    L 58,165 Z
+                "/>
+                <text class="state-label-text" x="268" y="100">KENTUCKY</text>
+
+                <!-- Tennessee -->
+                <path class="state-shape" d="
+                    M 28,168 L 58,165
+                    L 60,146 L 92,146
+                    L 92,168 L 433,150
+                    L 435,130 L 466,132
+                    L 468,205
+                    L 28,208 Z
+                "/>
+                <text class="state-label-text" x="245" y="190">TENNESSEE</text>
+
+                <!-- Alabama -->
+                <path class="state-shape" d="
+                    M 265,208 L 378,205
+                    L 382,358
+                    L 268,360 Z
+                "/>
+                <text class="state-label-text" x="324" y="292">ALABAMA</text>
+
+                <!-- Portland TN pin -->
+                <circle class="pin-pulse" cx="219" cy="178" r="8"/>
+                <circle class="pin-dot" cx="219" cy="178" r="5"/>
+                <text class="pin-label" x="219" y="165">Portland, TN</text>
+            </svg>
+            <div class="state-map-label" style="color: var(--stone-dark);">Servicing Tennessee &middot; Kentucky &middot; Alabama</div>
         </div>
-        <p style="margin-top: 28px; color: var(--text-gray); font-size: 0.9rem;">Not sure if we serve your area? <a href="tel:6157726134" style="color: var(--green-accent); font-weight: 600;">Give us a call</a> &mdash; we're happy to check.</p>
+        <p style="margin-top: 24px; color: var(--text-gray); font-size: 0.9rem;">
+            Not sure if we serve your area? <a href="tel:6157726134" style="color: var(--stone-accent); font-weight: 600;">Give us a call</a> &mdash; we're happy to check.
+        </p>
     </div>
 </section>
 
@@ -931,6 +1391,17 @@
                         <strong>Mon&ndash;Sat: 7am &ndash; 6pm</strong>
                     </div>
                 </div>
+                <div class="contact-detail">
+                    <div class="contact-detail-icon" style="background:#1877F2;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                            <path fill="#fff" d="M13.5 8.5H15.5V6H13.5C11.3 6 9.5 7.8 9.5 10V11.5H7.5V14H9.5V21H12V14H14.5L15 11.5H12V10C12 9.2 12.7 8.5 13.5 8.5Z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-detail-text">
+                        <p>Facebook</p>
+                        <a href="https://www.facebook.com/share/1HDg2ukXT2/?mibextid=wwXIfr" target="_blank" rel="noopener">Follow &amp; Message Us</a>
+                    </div>
+                </div>
                 <a href="tel:6157726134" class="phone-cta-btn">📞 Call Now &mdash; It's Free</a>
             </div>
 
@@ -940,11 +1411,12 @@
                 <!--
                     FORMSPREE SETUP:
                     1. Go to https://formspree.io and create a free account
-                    2. Create a new form — it will forward submissions to Hunterslandscape@gmail.com
-                    3. Copy your form ID (e.g. xpwzabcd) and replace YOUR_FORM_ID below
+                    2. Create a new form forwarding to Hunterslandscape@gmail.com
+                    3. Replace YOUR_FORM_ID below with your actual form ID (e.g. xpwzabcd)
+                    The subject line will auto-update to the selected service.
                 -->
-                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                    <input type="hidden" name="_subject" value="New quote request - Hunter's Lawn & Landscape">
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="quoteForm">
+                    <input type="hidden" name="_subject" id="formSubject" value="New Quote Request – Hunter's Lawn &amp; Landscape">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Full Name *</label>
@@ -970,6 +1442,7 @@
                             <option>Leaf Removal &amp; Cleanup</option>
                             <option>Landscaping &amp; Planting</option>
                             <option>Snow Removal &amp; Ice Control</option>
+                            <option>Sod Installation &amp; Seeding</option>
                             <option>Other / Not Sure</option>
                         </select>
                     </div>
@@ -986,26 +1459,75 @@
 
 <!-- FOOTER -->
 <footer>
-    <p><strong>Hunter's Lawn &amp; Landscape</strong> &nbsp;&middot;&nbsp; Portland, TN &nbsp;&middot;&nbsp; <a href="tel:6157726134">615-772-6134</a> &nbsp;&middot;&nbsp; <a href="mailto:Hunterslandscape@gmail.com">Hunterslandscape@gmail.com</a></p>
-    <p style="margin-top: 8px;">&copy; 2025 Hunter's Lawn &amp; Landscape. All rights reserved. &nbsp;&middot;&nbsp; Serving Nashville &amp; Middle Tennessee year-round.</p>
+    <p class="footer-name">Hunter's Lawn &amp; Landscape</p>
+    <p class="footer-location">Based out of Portland, TN 37148</p>
+    <p class="footer-contact">
+        <a href="tel:6157726134">615-772-6134</a>
+        &nbsp;&middot;&nbsp;
+        <a href="mailto:Hunterslandscape@gmail.com">Hunterslandscape@gmail.com</a>
+    </p>
+    <p class="footer-serving">&copy; 2025 &nbsp;&middot;&nbsp; Serving Tennessee, Kentucky &amp; Alabama year-round</p>
 </footer>
 
 <script>
+    // ===== MOBILE NAV =====
     const hamburger = document.getElementById('hamburger');
-    const mobileNav = document.getElementById('mobileNav');
+    const mobileNav  = document.getElementById('mobileNav');
 
-    hamburger.addEventListener('click', () => {
-        mobileNav.classList.toggle('open');
-    });
+    hamburger.addEventListener('click', () => mobileNav.classList.toggle('open'));
 
-    function closeMobileNav() {
-        mobileNav.classList.remove('open');
-    }
+    function closeMobileNav() { mobileNav.classList.remove('open'); }
 
     document.addEventListener('click', (e) => {
         if (!hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
             mobileNav.classList.remove('open');
         }
+    });
+
+    // ===== DYNAMIC FORM SUBJECT =====
+    const serviceSelect  = document.getElementById('service');
+    const formSubject    = document.getElementById('formSubject');
+
+    serviceSelect.addEventListener('change', function () {
+        const val = this.value;
+        formSubject.value = val
+            ? 'Quote Request: ' + val + ' \u2013 Hunter\'s Lawn & Landscape'
+            : 'New Quote Request \u2013 Hunter\'s Lawn & Landscape';
+    });
+
+    // ===== PHOTO GALLERY PLACEHOLDERS =====
+    function placeholderHTML(label) {
+        return '<div class="photo-item-placeholder">'
+            + '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="13" rx="2"/><circle cx="12" cy="13.5" r="3"/><path d="M8 7V5a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/></svg>'
+            + '<span>' + label + '</span>'
+            + '</div>';
+    }
+
+    // ===== LIGHTBOX =====
+    const lightbox        = document.getElementById('lightbox');
+    const lightboxImg     = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+
+    function openLightbox(card) {
+        const img = card.querySelector('img');
+        if (!img) return;
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        const caption = card.querySelector('.photo-overlay span');
+        lightboxCaption.textContent = caption ? caption.textContent : '';
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(e) {
+        if (e && e.target !== lightbox && !e.target.classList.contains('lightbox-close')) return;
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+        lightboxImg.src = '';
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLightbox({target: lightbox});
     });
 </script>
 </body>
