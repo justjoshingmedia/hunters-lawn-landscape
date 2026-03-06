@@ -411,7 +411,7 @@
             font-weight: 600;
         }
 
-        /* ===== SHOWROOM GALLERY ENTRY ===== */
+        /* ===== GALLERY SWIPE STRIP + ENTRY ===== */
         .gallery-entry {
             margin-top: 52px;
             text-align: center;
@@ -424,7 +424,65 @@
             letter-spacing: 1.5px;
             text-transform: uppercase;
             color: var(--gray-accent);
-            margin-bottom: 14px;
+            margin-bottom: 16px;
+        }
+
+        /* Horizontal swipe strip */
+        .swipe-strip {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding: 4px 4px 10px;
+            cursor: grab;
+            scrollbar-width: none; /* Firefox */
+        }
+
+        .swipe-strip::-webkit-scrollbar { display: none; }
+        .swipe-strip.dragging { cursor: grabbing; }
+
+        .swipe-thumb {
+            flex: 0 0 160px;
+            height: 120px;
+            border-radius: 10px;
+            overflow: hidden;
+            scroll-snap-align: start;
+            cursor: pointer;
+            position: relative;
+            background: var(--gray-dark);
+        }
+
+        .swipe-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.2s;
+        }
+
+        .swipe-thumb:hover img { transform: scale(1.05); }
+
+        .swipe-thumb-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.25);
+            font-size: 1.4rem;
+        }
+
+        /* Expand overlay on thumb */
+        .swipe-thumb::after {
+            content: '⤢';
+            position: absolute;
+            bottom: 6px;
+            right: 8px;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            line-height: 1;
+            pointer-events: none;
         }
 
         .gallery-entry-btn {
@@ -433,11 +491,11 @@
             gap: 10px;
             background: var(--tan);
             color: var(--gray-dark);
-            padding: 16px 36px;
+            padding: 13px 28px;
             border-radius: var(--radius);
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.95rem;
             cursor: pointer;
             border: none;
             transition: transform 0.2s, box-shadow 0.2s;
@@ -446,12 +504,6 @@
         .gallery-entry-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 28px rgba(200,169,110,0.4);
-        }
-
-        .gallery-entry-note {
-            margin-top: 10px;
-            font-size: 0.8rem;
-            color: var(--gray-accent);
         }
 
         /* ===== SHOWROOM OVERLAY ===== */
@@ -1117,18 +1169,21 @@
             </div>
         </div>
 
-        <!-- Showroom Entry -->
+        <!-- Swipe Strip + Showroom Entry -->
         <div class="gallery-entry">
-            <div class="gallery-entry-label">Photo Gallery</div>
-            <button class="gallery-entry-btn" onclick="openShowroom()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <div class="gallery-entry-label">Photo Gallery — Swipe or Tap to View</div>
+            <!-- Horizontal swipe strip -->
+            <div class="swipe-strip" id="swipeStrip">
+                <!-- thumbnails injected by JS -->
+            </div>
+            <button class="gallery-entry-btn" onclick="openShowroom(0)" style="margin-top:18px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="3" y="7" width="18" height="13" rx="2"/>
                     <circle cx="12" cy="13.5" r="2.8"/>
                     <path d="M8 7V5a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/>
                 </svg>
-                View Our Work Gallery
+                View Full Gallery
             </button>
-            <p class="gallery-entry-note">Tap to browse recently completed projects &rarr;</p>
         </div>
     </div>
 </section>
@@ -1463,9 +1518,55 @@
     let touchStartX  = 0;
     let touchEndX    = 0;
 
-    function openShowroom() {
+    // Build the swipe strip thumbnails on page load
+    function buildSwipeStrip() {
+        const strip = document.getElementById('swipeStrip');
+        if (!strip) return;
+        strip.innerHTML = '';
+        slides.forEach((slide, i) => {
+            const thumb = document.createElement('div');
+            thumb.className = 'swipe-thumb';
+            thumb.setAttribute('aria-label', 'Open ' + slide.caption);
+            thumb.onclick = () => openShowroom(i);
+
+            const img = document.createElement('img');
+            img.alt = slide.caption;
+            img.loading = 'lazy';
+            img.onerror = () => {
+                thumb.innerHTML = '<div class="swipe-thumb-placeholder">📷</div>';
+                // remove ::after expand icon via class
+                thumb.style.setProperty('--after-content', 'none');
+            };
+            img.src = slide.src;
+            thumb.appendChild(img);
+            strip.appendChild(thumb);
+        });
+
+        // Mouse drag-to-scroll
+        let isDown = false, startX, scrollLeft;
+        strip.addEventListener('mousedown', (e) => {
+            isDown = true;
+            strip.classList.add('dragging');
+            startX = e.pageX - strip.offsetLeft;
+            scrollLeft = strip.scrollLeft;
+        });
+        strip.addEventListener('mouseleave', () => { isDown = false; strip.classList.remove('dragging'); });
+        strip.addEventListener('mouseup',    () => { isDown = false; strip.classList.remove('dragging'); });
+        strip.addEventListener('mousemove',  (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x    = e.pageX - strip.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            strip.scrollLeft = scrollLeft - walk;
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', buildSwipeStrip);
+
+    function openShowroom(startIndex) {
+        const idx = (typeof startIndex === 'number') ? startIndex : 0;
         buildDots();
-        showSlide(0);
+        showSlide(idx);
         document.getElementById('showroom').classList.add('active');
         document.body.style.overflow = 'hidden';
     }
