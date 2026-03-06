@@ -653,37 +653,38 @@
 
         .why-point {
             display: flex;
-            gap: 12px;
-            align-items: flex-start;
+            gap: 10px;
+            align-items: center;
             background: var(--white);
-            padding: 18px 14px;
+            padding: 12px 12px;
             border-radius: var(--radius);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+            box-shadow: 0 1px 6px rgba(0,0,0,0.06);
         }
 
         .why-point-icon {
             background: var(--gray-light);
-            border-radius: 8px;
-            width: 36px;
-            height: 36px;
+            border-radius: 6px;
+            width: 30px;
+            height: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
+            font-size: 0.85rem;
             flex-shrink: 0;
         }
 
         .why-point-text h4 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.88rem;
+            font-size: 0.8rem;
             font-weight: 700;
             color: var(--gray-dark);
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .why-point-text p {
-            font-size: 0.8rem;
+            font-size: 0.72rem;
             color: var(--text-gray);
+            line-height: 1.4;
         }
 
         /* ===== SERVICE AREA ===== */
@@ -1071,57 +1072,6 @@
     <div class="trust-item">Year-Round Service</div>
 </div>
 
-<!-- SERVICES -->
-<section id="services">
-    <div class="container text-center">
-        <div class="section-label">What We Do</div>
-        <h2>Full-Service Lawn &amp; Landscape</h2>
-        <p class="section-sub">From routine maintenance to complete outdoor transformations &mdash; we've got your property covered every season.</p>
-        <div class="services-grid">
-            <div class="service-card">
-                <span class="service-icon">🌿</span>
-                <h3>Lawn Mowing &amp; Maintenance</h3>
-                <p>Reliable weekly or bi-weekly mowing, edging, trimming, and cleanup. Your yard looking sharp &mdash; consistently.</p>
-            </div>
-            <div class="service-card">
-                <span class="service-icon">🏔️</span>
-                <h3>Retaining Walls</h3>
-                <p>Block and stone retaining walls built to last. We handle sloped yards, terracing, and structural wall projects of all sizes.</p>
-            </div>
-            <div class="service-card">
-                <span class="service-icon">🪨</span>
-                <h3>Driveways &amp; Hardscapes</h3>
-                <p>Rip rap base, crush top layer installations, patios, and pavers. Built for durability and lasting curb appeal.</p>
-            </div>
-            <div class="service-card">
-                <span class="service-icon">💧</span>
-                <h3>Drainage &amp; Erosion Control</h3>
-                <p>Swales, rock drainage channels, and grading solutions to protect your property from water damage and erosion.</p>
-            </div>
-            <div class="service-card">
-                <span class="service-icon">🍂</span>
-                <h3>Leaf Removal &amp; Cleanup</h3>
-                <p>Commercial-grade leaf vacuum service for big and small properties. Full yard cleanup for fall and spring seasons.</p>
-            </div>
-            <div class="service-card">
-                <span class="service-icon">🌳</span>
-                <h3>Landscaping &amp; Planting</h3>
-                <p>Garden beds, mulching, shrub installation, and full landscape design. We help you build the outdoor space you've always wanted.</p>
-            </div>
-            <div class="service-card">
-                <span class="service-icon">❄️</span>
-                <h3>Snow Removal &amp; Ice Control</h3>
-                <p>Commercial and residential snow plowing with heavy equipment. -10&deg; salt available. Parking lots, driveways &mdash; call anytime.</p>
-            </div>
-            <div class="service-card">
-                <span class="service-icon">🌱</span>
-                <h3>Sod Installation &amp; Seeding</h3>
-                <p>New sod laying and overseeding for bare or damaged lawns. We prep the ground right so your lawn grows in thick and healthy.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- PORTFOLIO / OUR WORK -->
 <section id="work">
     <div class="container text-center">
@@ -1235,7 +1185,7 @@
                 <div class="why-point-icon">📅</div>
                 <div class="why-point-text">
                     <h4>We Show Up On Time</h4>
-                    <p>No ghosting, no excuses. When we book a job, we're there.</p>
+                    <p>When we book a job, we're there.</p>
                 </div>
             </div>
             <div class="why-point">
@@ -1484,29 +1434,29 @@
 
     // ===== SHOWROOM GALLERY =====
     const slides = [
-        { src: 'images/IMG_1040.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
-        { src: 'images/IMG_1041.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
-        { src: 'images/IMG_1042.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
-        { src: 'images/IMG_1043.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
-        { src: 'images/IMG_1044.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
-        { src: 'images/IMG_1045.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
-        { src: 'images/IMG_1046.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
-        { src: 'images/IMG_1047.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
-        { src: 'images/IMG_1048.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
-        { src: 'images/IMG_1049.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
-        { src: 'images/IMG_1050.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
-        { src: 'images/IMG_1051.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
-        { src: 'images/IMG_1052.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
-        { src: 'images/IMG_1053.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
-        { src: 'images/IMG_1054.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
-        { src: 'images/IMG_1055.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
-        { src: 'images/IMG_1056.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
-        { src: 'images/IMG_1057.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
-        { src: 'images/IMG_1058.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
-        { src: 'images/IMG_1059.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
-        { src: 'images/IMG_1060.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
-        { src: 'images/IMG_1065.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
-        { src: 'images/IMG_1066.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'IMG_1040.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'IMG_1041.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'IMG_1042.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'IMG_1043.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'IMG_1044.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'IMG_1045.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'IMG_1046.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'IMG_1047.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'IMG_1048.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'IMG_1049.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'IMG_1050.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'IMG_1051.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'IMG_1052.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'IMG_1053.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'IMG_1054.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'IMG_1055.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'IMG_1056.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'IMG_1057.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'IMG_1058.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'IMG_1059.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'IMG_1060.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'IMG_1065.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
+        { src: 'IMG_1066.jpeg', caption: 'Completed Project', location: '📍 Tennessee' },
     ];
 
     let currentSlide = 0;
