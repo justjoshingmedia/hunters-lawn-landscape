@@ -10,11 +10,11 @@
     <style>
         /* ===== CSS CUSTOM PROPERTIES ===== */
         :root {
-            --charcoal:     #1a1a1a;
-            --charcoal-mid: #1f1f1f;
-            --charcoal-alt: #242424;
-            --charcoal-card:#2c2c2c;
-            --charcoal-nav: #141414;
+            --charcoal:     #2a2a2a;
+            --charcoal-mid: #2f2f2f;
+            --charcoal-alt: #343434;
+            --charcoal-card:#3c3c3c;
+            --charcoal-nav: #222222;
             --accent:       #c8a96e;
             --accent-light: #d9be90;
             --white:        #ffffff;
@@ -32,6 +32,7 @@
             color: var(--text-main);
             background: var(--charcoal);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         /* ===== SCROLL ANIMATIONS ===== */
@@ -393,7 +394,7 @@
         .container { max-width: 1100px; margin: 0 auto; }
 
         /* ===== SERVICES ===== */
-        #services { background: var(--charcoal-mid); }
+        #services { background: var(--charcoal-mid); overflow-x: hidden; }
 
         .services-grid {
             display: grid;
@@ -407,10 +408,11 @@
             padding: 16px 14px;
             border-top: 3px solid var(--accent);
             transition: transform 0.25s, box-shadow 0.25s;
-            aspect-ratio: 1 / 1;
+            height: 180px;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
         }
         .service-card:hover {
             transform: translateY(-4px);
@@ -469,7 +471,7 @@
         }
 
         /* ===== PORTFOLIO TEXT CARDS ===== */
-        #work { background: var(--charcoal); }
+        #work { background: var(--charcoal); overflow-x: hidden; }
 
         .portfolio-grid {
             display: grid;
@@ -486,10 +488,10 @@
             overflow: hidden;
             transition: transform 0.25s, box-shadow 0.25s;
             border-left: 4px solid transparent;
-            aspect-ratio: 1 / 1;
+            height: 180px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
         }
         .portfolio-card:hover {
             transform: translateY(-3px);
@@ -950,8 +952,8 @@
         .qb-group select,
         .qb-group textarea {
             width: 100%;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.12);
+            background: #3d3d3d;
+            border: 1px solid #555;
             border-radius: 6px;
             padding: 8px 11px;
             color: var(--white);
@@ -1039,7 +1041,7 @@
 
         /* ===== FOOTER ===== */
         footer {
-            background: #0f0f0f;
+            background: #1e1e1e;
             color: var(--text-muted);
             text-align: center;
             padding: 36px 24px;
@@ -1076,6 +1078,8 @@
         @media (max-width: 900px) {
             .why-points { grid-template-columns: repeat(2, 1fr); }
             .contact-wrapper { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: repeat(3, 1fr); }
+            .portfolio-grid { grid-template-columns: repeat(3, 1fr); }
         }
 
         @media (max-width: 768px) {
@@ -1084,9 +1088,11 @@
             .hamburger { display: flex; }
             .qb-form-row { grid-template-columns: 1fr; }
             .qb-actions { grid-template-columns: 1fr; }
-            section { padding: 44px 18px; }
-            .trust-bar { gap: 14px; }
+            section { padding: 36px 16px; }
+            .trust-bar { gap: 12px; }
             .showroom-body { padding: 12px 56px; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 500px) {
@@ -1100,7 +1106,6 @@
             .showroom-nav-btn { width: 40px; height: 40px; font-size: 1.4rem; }
             .showroom-nav-btn.prev { left: 4px; }
             .showroom-nav-btn.next { right: 4px; }
-            .service-area-states { grid-template-columns: 1fr; max-width: 220px; }
             .float-cta { bottom: 16px; right: 14px; padding: 12px 18px; font-size: 0.82rem; }
         }
     </style>
@@ -1360,7 +1365,7 @@
                         <a href="tel:6157726134">615-772-6134</a>
                     </div>
                 </div>
-                <div class="contact-detail">
+                <div class="contact-detail" style="align-items:center;text-align:center;">
                     <div class="contact-detail-icon">✉️</div>
                     <div class="contact-detail-text">
                         <p>Email</p>
