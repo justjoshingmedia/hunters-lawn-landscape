@@ -250,19 +250,12 @@
         .hero {
             display: block;
             line-height: 0;
+            background: var(--charcoal-nav);
         }
         .hero-img {
             width: 100%;
             height: auto;
             display: block;
-            -webkit-mask-image:
-                linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%),
-                linear-gradient(to bottom, transparent 0%, black 6%, black 94%, transparent 100%);
-            mask-image:
-                linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%),
-                linear-gradient(to bottom, transparent 0%, black 6%, black 94%, transparent 100%);
-            -webkit-mask-composite: source-in;
-            mask-composite: intersect;
         }
 
         /* Tagline block below hero image */
@@ -408,8 +401,7 @@
             padding: 16px 14px;
             border-top: 3px solid var(--accent);
             transition: transform 0.25s, box-shadow 0.25s;
-            height: 180px;
-            overflow: hidden;
+            min-height: 120px;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -485,10 +477,9 @@
             border-radius: 10px;
             padding: 16px 14px;
             position: relative;
-            overflow: hidden;
             transition: transform 0.25s, box-shadow 0.25s;
             border-left: 4px solid transparent;
-            height: 180px;
+            min-height: 120px;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -1365,7 +1356,7 @@
                         <a href="tel:6157726134">615-772-6134</a>
                     </div>
                 </div>
-                <div class="contact-detail" style="align-items:center;text-align:center;">
+                <div class="contact-detail">
                     <div class="contact-detail-icon">✉️</div>
                     <div class="contact-detail-text">
                         <p>Email</p>
