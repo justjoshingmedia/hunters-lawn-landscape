@@ -398,36 +398,40 @@
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
+            gap: 12px;
         }
 
         .service-card {
             background: var(--charcoal-card);
             border-radius: 10px;
-            padding: 18px 16px;
+            padding: 16px 14px;
             border-top: 3px solid var(--accent);
             transition: transform 0.25s, box-shadow 0.25s;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         .service-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 32px rgba(0,0,0,0.5);
         }
         .service-icon {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
             display: block;
         }
         .service-card h3 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.87rem;
+            font-size: 0.78rem;
             font-weight: 700;
             color: var(--white);
-            margin-bottom: 7px;
+            margin-bottom: 5px;
         }
         .service-card p {
             color: var(--text-muted);
-            font-size: 0.78rem;
-            line-height: 1.55;
+            font-size: 0.72rem;
+            line-height: 1.45;
         }
 
         /* ===== STATS BAND ===== */
@@ -469,19 +473,23 @@
 
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 14px;
-            margin-bottom: 36px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 32px;
         }
 
         .portfolio-card {
             background: var(--charcoal-card);
             border-radius: 10px;
-            padding: 18px 16px;
+            padding: 16px 14px;
             position: relative;
             overflow: hidden;
             transition: transform 0.25s, box-shadow 0.25s;
             border-left: 4px solid transparent;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         .portfolio-card:hover {
             transform: translateY(-3px);
@@ -492,33 +500,33 @@
         .portfolio-tag {
             background: rgba(200,169,110,0.15);
             color: var(--accent);
-            font-size: 0.67rem;
+            font-size: 0.64rem;
             font-weight: 700;
-            padding: 3px 10px;
+            padding: 3px 9px;
             border-radius: 20px;
             display: inline-block;
-            margin-bottom: 9px;
+            margin-bottom: 7px;
             letter-spacing: 0.3px;
             border: 1px solid rgba(200,169,110,0.3);
         }
 
         .portfolio-card h3 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.78rem;
             font-weight: 700;
             color: var(--white);
-            margin-bottom: 7px;
+            margin-bottom: 5px;
         }
 
         .portfolio-card p {
-            font-size: 0.79rem;
+            font-size: 0.72rem;
             color: var(--text-muted);
-            line-height: 1.55;
+            line-height: 1.45;
         }
 
         .portfolio-location {
-            margin-top: 10px;
-            font-size: 0.73rem;
+            margin-top: 7px;
+            font-size: 0.68rem;
             color: var(--accent);
             font-weight: 600;
         }
@@ -1068,7 +1076,6 @@
         @media (max-width: 900px) {
             .why-points { grid-template-columns: repeat(2, 1fr); }
             .contact-wrapper { grid-template-columns: 1fr; }
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
@@ -1083,7 +1090,8 @@
         }
 
         @media (max-width: 500px) {
-            .services-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
             .why-points { grid-template-columns: 1fr 1fr; }
             .btn-primary, .btn-secondary { width: 100%; max-width: 280px; text-align: center; }
             .hero-cta { flex-direction: column; align-items: center; }
@@ -1152,7 +1160,7 @@
 
 <!-- HERO -->
 <div class="hero">
-    <img class="hero-img" src="B7BDC04B-1F9D-4A2E-AD23-66CE4D2A2A13.png" alt="Hunter's Lawn &amp; Landscape — Serving Tennessee, Kentucky &amp; Alabama">
+    <img class="hero-img" src="Hero image.jpg" alt="Hunter's Lawn &amp; Landscape — Serving Tennessee, Kentucky &amp; Alabama">
 </div>
 
 <!-- HERO TEXT -->
@@ -1335,34 +1343,6 @@
 </section>
 
 <!-- SERVICE AREA -->
-<section id="service-area">
-    <div class="container text-center">
-        <div class="section-label animate">Where We Work</div>
-        <h2 class="animate">Serving Tennessee, Kentucky &amp; Alabama</h2>
-        <p class="section-sub animate">Based in Portland, TN &mdash; we take on projects across the tristate area. Call us to confirm coverage in your specific area.</p>
-        <div class="service-area-states animate">
-            <div class="service-state-badge">
-                <div class="state-flag">🏔️</div>
-                <h4>Tennessee</h4>
-                <p>Home base &middot; All of Middle TN</p>
-            </div>
-            <div class="service-state-badge">
-                <div class="state-flag">🌾</div>
-                <h4>Kentucky</h4>
-                <p>South KY service areas</p>
-            </div>
-            <div class="service-state-badge">
-                <div class="state-flag">🌲</div>
-                <h4>Alabama</h4>
-                <p>North AL service areas</p>
-            </div>
-        </div>
-        <div class="service-area-cta animate">
-            <a href="tel:6157726134">&#128222; Call 615-772-6134 to confirm your area</a>
-        </div>
-    </div>
-</section>
-
 <!-- CONTACT / QUOTE BUILDER -->
 <section id="contact">
     <div class="container text-center">
@@ -1703,6 +1683,9 @@
     showroomEl.addEventListener('click', (e) => {
         if (e.target === showroomEl) closeShowroom();
     });
+</script>
+<script>
+    window.onbeforeunload = function(){ window.scrollTo(0,0); };
 </script>
 </body>
 </html>
